@@ -1,0 +1,261 @@
+﻿.BotonesEditarPerfil {
+    background-color: #295884;
+    color: #fff;
+}
+
+.BotonesEditarPerfil:hover {
+    background-color: rgba(41, 88, 132, 0.57);
+    /*border-color: #295884;*/
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.botonCancelar {
+    background-color: #23b7e5;
+    color: #fff;
+}
+
+.botonCancelar:hover {
+    background-color: rgba(58, 132, 118, 0.46);
+    /*border-color: #295884;*/
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.auto-style1 {
+    width: 227px;
+    height: 198px;
+}
+
+.imgPerfil {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+    .imgPerfil:hover, .imgPerfil:active, .imgPerfil:focus {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+
+.Titulo {
+    background-color: #295884;
+    border-radius: 0px 15px 15px 0px;
+    text-shadow: 0 0 #f5f7fa;
+    color: white;
+    height: 30px;
+    padding: 4px 20px;
+    margin-bottom: 1px;
+}
+
+.ClickTitulo {
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.ClickTitulo:hover {
+    transform: translateX(1em);
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+@media screen and (min-width: 992px) {
+    .InformacionPersonal {
+        margin-top: 5%;
+    }
+
+    .BotonEnviarInfoPrincipal {
+        margin-right: 20% !important;
+        margin-top: 2%;
+    }
+}
+
+@keyframes click-wave {
+    0% {
+        height: 30px;
+        width: 30px;
+        opacity: 0.35;
+        position: relative;
+    }
+
+    100% {
+        height: 150px;
+        width: 150px;
+        margin-left: -80px;
+        margin-top: -80px;
+        opacity: 0;
+    }
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 13.33333px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+    border-radius: 50%;
+}
+
+.option-input:hover {
+background: #9faab7;
+}
+
+.option-input:checked {
+background: #295884;
+}
+
+.option-input:checked::before {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.3s;
+    -moz-animation: click-wave 0.3s;
+    animation: click-wave 0.3s;
+    background: rgba(64, 224, 208, 0.45);
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.option-input.radio {
+border-radius: 50%;
+}
+
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+.spinnerBackdrop2 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding-top: 50vh;
+    padding-bottom: 50vh;
+    vertical-align: middle;
+    z-index: 900;
+}
+
+.spinnerContent2 {
+    text-align: center;
+    position: relative;
+}
+
+.spinnerItem {
+    margin: 0 auto 0;
+    width: 70px;
+    text-align: center;
+}
+
+.spinnerItem > div {
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinnerItem .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinnerItem .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+    }
+
+    40% {
+        -webkit-transform: scale(1.0);
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+.divFecha {
+    margin-top: 15px !important;
+}
+
+.btnGuardar {
+    background-color: #295884;
+    color: #fff;
+}
+
+
+.btnGuardar:hover {
+    background-color: rgba(41, 88, 132, 0.40);
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.espacio1{
+    margin-top:0.5px !important;
+}
+
+.colorTextoOfi{
+    color:black;
+}
+/*span.ValidarIngreso input + label::before {
+    content: 'No';
+}
+
+span.ValidarIngreso input:checked label::before {
+    content: 'Si';
+}*/

@@ -1,0 +1,82 @@
+﻿.searchBar {
+    margin-bottom: 10px;
+    margin-top:  10px;
+    width: 100%;
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+.searchBar::before{
+    font: normal normal normal 1em FontAwesome;
+    /* font-size: 119%; */
+    line-height: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    content: "\f002";
+    width: 16px;
+    color: #A9A9A9;
+    position: relative;
+    right: -10px;
+}
+.searchBar input {
+    border: 1px solid #ddd;
+    padding: 7px !important;
+    padding-left: 30px !important;
+    border-radius: 10px;
+    font-family: monospace;
+    margin-left: -15px !important   ;    
+    margin-right: -15px !important;
+    width: 100%;
+}
+.searchBar input.roundedSearch {
+    border-radius: 100px;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    box-shadow: 0 0 0 #000!important;
+    height: 46px;
+    padding: 10px 20px;
+    font-size: 18px;
+    line-height: 1.33;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dde6e9;
+    font-family: "Source Sans Pro", sans-serif, monospace;
+    color: #4c9a87;
+    text-align:center;
+    font-weight: 700;
+}
+.searchBar .clean{
+    font: normal normal normal 1em FontAwesome;
+    /* font-size: 119%; */
+    line-height: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    content: " &#61527;";
+    width: 16px;
+    color: #A9A9A9;
+    position: relative;
+    left: -10px;
+    cursor: pointer;
+    pointer-events: all;
+}
+    .searchBar-noResults {
+        color:#fff;
+        font-family: "Source Sans Pro", sans-serif, monospace;
+        font-size:14px;
+        font-style:italic;
+    }
+.searchBar input::-moz-placeholder {
+    color: #b7bac9;
+    opacity: 1;
+}
+.searchBar input:-ms-input-placeholder {
+    color: #b7bac9;
+}
+.searchBar input::-webkit-input-placeholder {
+    color: #b7bac9;
+}

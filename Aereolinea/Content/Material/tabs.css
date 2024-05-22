@@ -1,0 +1,119 @@
+﻿
+.panels {
+    padding: 8px;
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.panel {
+    display: none;
+}
+
+    .panel.active {
+        display: block;
+    }
+
+.dots {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 4px;
+    padding-bottom: 16px;
+}
+
+.dot {
+    margin: 0 4px;
+    border-radius: 50%;
+    border: 1px solid #00BFA5;
+    width: 20px;
+    height: 20px;
+}
+
+    .dot:last-child {
+        margin-right: 0;
+    }
+
+    .dot.active {
+        background-color: #00BFA5;
+        border-color: #00BFA5;
+    }
+
+.my-modified-toolbar-section {
+    position: absolute;
+    right: 0;
+    bottom: -16px;
+}
+
+[dir="rtl"] .my-modified-toolbar-section {
+    right: auto;
+    left: 0;
+}
+/*========================Estilos Personalizados===========================*/
+
+
+.mdc-text-field--textarea {
+    border-color: #ccc;
+}
+
+p {
+    color: #757575;
+    font-size: 14px;
+}
+
+.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) {
+    padding-left: 48px;
+}
+
+.mdc-text-field--fullwidth input {
+    position: relative;
+    bottom: -8px;
+}
+
+
+.mdc-canvas {
+    position: relative;
+}
+
+    .mdc-canvas canvas {
+        outline: none;
+        margin-top: 22px;
+    }
+
+    .mdc-canvas .mdc-text-field__label {
+        margin-left: 38px;
+        top: 23px;
+        bottom: auto;
+        background-color: rgba(255, 255, 255, 0.96);
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .mdc-canvas .mdc-text-field__icon {
+        margin-left: 2px;
+        bottom: auto;
+        left:-25px;
+        right:auto;
+        position:absolute;
+        background-color: rgba(255,255,255,0.96);
+    }
+
+    .mdc-canvas canvas:focus, mdc-canvas canvas:active {
+        border-top: 2px solid #610bee !important;
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+    }
+
+        .mdc-canvas canvas:focus ~ .mdc-text-field__label, .mdc-canvas canvas:active ~ .mdc-text-field__label {
+            transform: translateY(-100%) scale(.75);
+            border-radius: 0;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0);
+        }
+.mdc-text-field--textarea .mdc-text-field__label {
+    background-color:transparent !important ;
+}
+.hide {
+    display:none;
+}
+body {
+    margin:0 !important;
+}

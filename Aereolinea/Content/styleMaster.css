@@ -1,0 +1,701 @@
+﻿.sidebar .nav mark{
+    padding :0;
+    background-color:#b4e7da;
+}
+.iconoPerfilNav {
+    width: 40px;
+    height: 39px;
+    font-size: 22px;
+     color:#fff;
+}
+
+.iconoPerfilSideBar{
+    width:190px;
+    height:190px;
+    font-size:120px;
+    color:#fff;
+}
+
+@media (max-width: 768px) {
+    #iconProfileLiNavMaster > a {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+}
+
+@media (min-width: 769px) {
+
+    #iconProfileLiNavMaster > a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}
+
+.aside-collapsed .collapsable {
+    display: none;
+}
+
+.panel-modulo-landing > *{
+    height:75px;
+}
+
+.panel-modulo-landing h5{
+    word-break:break-word;
+}
+
+.panel-modulo-landing[data-active-l='False'] * {
+    text-align: center;
+    opacity: 0.8;
+    cursor: not-allowed;
+    -webkit-user-select: none;
+    position:relative;
+}
+
+.panel-modulo-landing[data-active-l='False'] {
+    display: none;
+}
+ 
+ .panel-modulo-landing:not([data-active-l='False']){
+     transition: 0.3s all ease-in-out;
+ }
+
+.panel-modulo-landing:not([data-active-l='False']):hover{
+    -webkit-transform: translateY(-10px);/*scale3d(1.05,1.05,1.05);*/
+    transform: translateY(-10px);/*scale3d(1.05,1.05,1.05);*/
+    -webkit-transform-origin: center;
+    transform-origin: center;
+
+    cursor: pointer;
+    border-radius: 3px;
+    -moz-transition: all 0.7s;
+    -o-transition: all 0.7s;
+    -webkit-transition: all 0.7s;
+    transition: all 0.7s;
+}
+
+.panel-modulo-landing[data-active-l='False']:hover >*:first-child:before {content: "El acceso a este modulo no esta permitido";z-index: 2;background-color: rgba(84, 204, 174, 0.67);color: #163a32;}
+
+.panel-modulo-landing[data-active-l='False']>*:first-child:before {
+    content: "";
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: block;
+    font-size: 18px;
+    padding: 0.7em;
+    color: #4ec9aa;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+
+
+/*Menu modulo barra navegacion*/
+#moduloMenuCollage {
+    display: block;
+    height: 0px;
+}
+
+#moduloMenuCollage:focus {
+    display: block;
+    height: 140px;
+}
+
+#moduloMenuCollage * {
+    display: none;
+    position:relative;
+}
+
+#moduloMenuCollage:focus * {
+    display: block;
+}
+
+#ayudaMenuCollage {
+    display: block;
+    height: 0px;
+}
+
+#ayudaMenuCollage:focus {
+    display: block;
+    height: 140px;
+}
+
+#ayudaMenuCollage * {
+    display: none;
+    position:relative;
+}
+
+#ayudaMenuCollage:focus * {
+    display: block;
+}
+
+.moduloMenu > .panel-menu {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    height:105px;
+    overflow:hidden;
+}
+
+.moduloMenu > .panel-menu > .body-menu {
+    word-break:break-word;
+}
+
+.moduloMenu > .panel-menu > .header-menu > i {
+    font-size: 50px;
+}
+
+
+.moduloMenu[data-active-m='False'] * {
+    text-align: center;
+    opacity: 0.6;
+    cursor: not-allowed;
+    -webkit-user-select: none;
+}
+
+.moduloMenu:not([data-active-m='False']) > *{
+    transition: 0.3s all ease-in-out;
+    cursor:pointer;
+}
+
+.moduloMenu[data-active-m='False']{
+    display:none !important;
+}
+
+.moduloMenu:not([data-active-m='False']):hover > *{
+    background-color: #eee;
+}
+
+.moduloMenu[data-active-m='False']>*:first-child:before {
+    content: "";
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    display: block;
+    font-size: 18px;
+    padding: 0.7em;
+    color: #4ec9aa;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.moduloMenu[data-active-m='False']:hover >*:first-child:before {content: "El acceso a este modulo no esta permitido";z-index: 2;background-color: rgba(84, 204, 174, 0.67);color: #163a32;}
+
+
+.wrapper>.aside>.aside-inner>  nav ul li a  span {
+    white-space: normal;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.wrapper>.aside>.aside-inner > nav ul li a em {
+    vertical-align: top;
+}
+
+
+
+/*Menu lateral permisos*/
+
+.sidebar > .nav > li{
+        border-bottom: 0.5px dotted #ccc;
+}
+
+.aside>.aside-inner> nav > ul  li a {
+    -webkit-transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -o-transition:all 0.3s ease-in-out; 
+    transition:all 0.3s ease-in-out;
+}
+.aside>.aside-inner> nav > ul  li.inactivo > a {
+    cursor: not-allowed;
+    color: #d0d0d0;
+}
+.aside>.aside-inner> nav > ul  li.inactivo > a:hover{
+    background: rgba(179, 179, 179, 0.1) !important;
+}
+
+.fn-green {
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    cursor:pointer;
+    color: #87d9c4;
+}
+
+.fn-green:hover, .fn-green:focus{
+    color: #43c3a3;
+}
+
+/*COLORES BACKGROUND*/
+.bgn-greenlight {
+    background-color: #99b433;
+}
+
+.bgn-green {
+    background-color: #00a300;
+}
+
+.bgn-greendark {
+    background-color: #1e7145;
+}
+
+.bgn-greenlight {
+    color: #99b433;
+}
+
+.bgn-magenta {
+    background-color: #ff0097;
+}
+
+.bgn-purplelight {
+    background-color: #9f00a7;
+}
+
+.bgn-purple {
+    background-color: #7e3878;
+}
+
+.bgn-purpledark {
+    background-color: #603cba;
+}
+
+.bgn-darken {
+    background-color: #1d1d1d;
+}
+
+.bgn-teal {
+    background-color: #00aba9;
+}
+
+.bgn-bluelight {
+    background-color: #eff4ff;
+}
+
+.bgn-blue {
+    background-color: #2d89ef;
+}
+
+.bgn-bluedark {
+    background-color: #2b5797;
+}
+
+.bgn-yellow {
+    background-color: #ffc40d;
+}
+
+.bgn-orange {
+    background-color: #e3a21a;
+}
+
+.bgn-orangedark {
+    background-color: #da532c;
+}
+
+.bgn-red {
+    background-color: #b91d47;
+}
+
+.bgn-redlight {
+    background-color: #ee1111;
+}
+
+.bgn-white {
+    background-color: #fff;
+}
+
+.bgn-darkwine {
+    background-color: #a3020e;
+}
+
+.bgn-brown {
+    background-color: #4d4234;
+}
+
+.bgn-browndark {
+    background-color: #ecb386;
+}
+
+.bgn-pink {
+    background-color: #ed7999;
+}
+
+.bgn-pinklight {
+    background-color: #f0bcd8;
+}
+
+.bgn-pinkdark {
+    background-color: #c28088;
+}
+
+.bgn-graybrown {
+    background-color: #99918a;
+}
+
+.bgn-grayblue {
+    background-color: #a8adaf;
+}
+
+.bgn-golden {
+    background-color: #cc9442;
+}
+
+.bgn-greenolive {
+    background-color: #4f7100;
+}
+
+.bgn-greenolivelight {
+    background-color: #baab31;
+}
+
+
+/*COLOR LETRA*/
+
+.text-greenlight {
+    color: #99b433;
+}
+
+.text-green {
+    color: #00a300;
+}
+
+.text-greendark {
+    color: #1e7145;
+}
+
+.text-greenlight {
+    color: #99b433;
+}
+
+.text-magenta {
+    color: #ff0097;
+}
+
+.text-purplelight {
+    color: #9f00a7;
+}
+
+.text-purple {
+    color: #7e3878;
+}
+
+.text-purpledark {
+    color: #603cba;
+}
+
+.text-darken {
+    color: #1d1d1d;
+}
+
+.text-teal {
+    color: #00aba9;
+}
+
+.text-bluelight {
+    color: #eff4ff;
+}
+
+.text-blue {
+    color: #2d89ef;
+}
+
+.text-bluedark {
+    color: #2b5797;
+}
+
+.text-yellow {
+    color: #ffc40d;
+}
+
+.text-orange {
+    color: #e3a21a;
+}
+
+.text-orangedark {
+    color: #da532c;
+}
+
+.text-red {
+    color: #b91d47;
+}
+
+.text-redlight {
+    color: #ee1111;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-darkwine {
+    color: #a3020e;
+}
+
+.text-brown {
+    color: #4d4234;
+}
+
+.text-browndark {
+    color: #ecb386;
+}
+
+.text-pink {
+    color: #ed7999;
+}
+
+.text-pinklight {
+    color: #f0bcd8;
+}
+
+.text-pinkdark {
+    color: #c28088;
+}
+
+.text-graybrown {
+    color: #99918a;
+}
+
+.text-grayblue {
+    color: #a8adaf;
+}
+
+.text-golden {
+    color: #cc9442;
+}
+
+.text-greenolive {
+    color: #4f7100;
+}
+
+.text-greenolivelight {
+    color: #baab31;
+}
+
+.pulse-hover {
+    transition: 0.3s all ease-in-out;
+}
+
+.pulse-hover:hover {
+    -webkit-transform: scale3d(1.05,1.05,1.05);
+    transform: scale3d(1.05,1.05,1.05);
+    -webkit-transform-origin: center;
+    transform-origin: center;
+}
+
+
+/*ANIMACION*/
+.loading-background:after {content: "Por favor espere...";width: 100%;text-align: center;font-size: 24px;font-family: monospace;color: #1B6866;margin-top: 214px;}
+
+
+
+.loading-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgba(237, 241, 242, 0.82);
+    z-index: 100000000;
+}
+
+.cssload-bell {
+	width: 80px;
+	height: 82px;
+	border-radius: 100%;
+	position: absolute;
+	left: calc(50% - 40px);
+}
+
+.cssload-circle {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.cssload-circle .cssload-inner {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	border: 4px solid rgba(26,105,102,0.7);
+	border-right: none;
+	border-top: none;
+	background-clip: padding;
+	box-shadow: inset 0px 0px 8px rgba(52,209,201,0.15);
+}
+
+.cssload-circle:nth-of-type(0) {
+	transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+}
+.cssload-circle:nth-of-type(0) .cssload-inner {
+	animation: cssload-spin 1.5s infinite linear;
+		-o-animation: cssload-spin 1.5s infinite linear;
+		-ms-animation: cssload-spin 1.5s infinite linear;
+		-webkit-animation: cssload-spin 1.5s infinite linear;
+		-moz-animation: cssload-spin 1.5s infinite linear;
+}
+
+.cssload-circle:nth-of-type(1) {
+	transform: rotate(70deg);
+		-o-transform: rotate(70deg);
+		-ms-transform: rotate(70deg);
+		-webkit-transform: rotate(70deg);
+		-moz-transform: rotate(70deg);
+}
+.cssload-circle:nth-of-type(1) .cssload-inner {
+	animation: cssload-spin 1.5s infinite linear;
+		-o-animation: cssload-spin 1.5s infinite linear;
+		-ms-animation: cssload-spin 1.5s infinite linear;
+		-webkit-animation: cssload-spin 1.5s infinite linear;
+		-moz-animation: cssload-spin 1.5s infinite linear;
+}
+
+.cssload-circle:nth-of-type(2) {
+	transform: rotate(140deg);
+		-o-transform: rotate(140deg);
+		-ms-transform: rotate(140deg);
+		-webkit-transform: rotate(140deg);
+		-moz-transform: rotate(140deg);
+}
+.cssload-circle:nth-of-type(2) .cssload-inner {
+	animation: cssload-spin 1.5s infinite linear;
+		-o-animation: cssload-spin 1.5s infinite linear;
+		-ms-animation: cssload-spin 1.5s infinite linear;
+		-webkit-animation: cssload-spin 1.5s infinite linear;
+		-moz-animation: cssload-spin 1.5s infinite linear;
+}
+
+.cssload-bell {
+	animation: cssload-spin 3.75s infinite linear;
+		-o-animation: cssload-spin 3.75s infinite linear;
+		-ms-animation: cssload-spin 3.75s infinite linear;
+		-webkit-animation: cssload-spin 3.75s infinite linear;
+		-moz-animation: cssload-spin 3.75s infinite linear;
+}
+
+
+
+@keyframes cssload-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@-o-keyframes cssload-spin {
+	from {
+		-o-transform: rotate(0deg);
+	}
+	to {
+		-o-transform: rotate(360deg);
+	}
+}
+
+@-ms-keyframes cssload-spin {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes cssload-spin {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-moz-keyframes cssload-spin {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+
+.ColVis .ColVis_Button{
+    background-image: none !important;
+    border: 1px solid #e1e2e3 !important;
+    box-shadow: 0 0 0 #000 !important;
+}
+
+.input-group-addon {
+    background-color: #295884 !important;
+    color: white;
+}
+
+ul.ColVis_collection {
+    background-color: #fff !important;
+}
+
+.topnavbar .nav-wrapper {
+    background-color: #295884;
+    background-image: -webkit-linear-gradient(left, #295884 0%, #295884 100%);
+    background-image: -o-linear-gradient(left, #295884 0%, #295884 100%);
+    background-image: linear-gradient(to right, #295884 0%, #295884 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff37bc9b', endColorstr='#ff58ceb1', GradientType=1);
+}
+
+.iframeReportes {
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    height: 650px;
+}
+
+.nav-menu li a:hover {
+    color: rgba(169, 208, 245, 0.77) !important;
+}
+
+.modal-dialog {
+    margin-top: 8%;
+}
+
+.modal-header {
+    background-color: #295884;
+    color: #fff;
+}
+
+.close {
+    color: #fff !important;
+}
+
+.modal-title {
+    text-align: center !important;
+}
+
+.aside > .aside-inner > nav > ul li a:hover {
+    background-color: #295884;
+    color: #fff !important;
+}
+
+.aside > .aside-inner > nav > ul li .sidebar-subnav li a:hover {
+    color: #3c6a9c !important;
+    background-color: rgba(171, 209, 244, 0.75) !important;
+}

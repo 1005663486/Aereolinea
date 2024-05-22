@@ -1,0 +1,299 @@
+﻿
+/*.color{
+    color: aqua;
+
+}
+
+.hola{
+
+    background-color: aquamarine;
+}*/
+
+/*ul.crud-list li {
+   background-color: #37bc9b;
+   color: #FED;
+   padding: 4px;
+   border-radius: 5px;
+   font-size: 15px;
+   font-family: monospace;
+   text-align: center;
+   margin-bottom: 3px;
+   display: inline-block;
+   max-width: 100%;
+   overflow-wrap: break-word;
+}
+ul.crud-list{
+  
+   overflow-y: auto;
+   max-height: 100px;
+   max-width: 100%;
+   overflow-x: hidden;
+   display:grid;
+
+}
+
+ul.crud-list li i {
+   cursor:pointer;
+   float: right;
+   margin-right: 10px;
+   font-size: 17px;
+}
+
+
+.fa-times-circle:before {
+   content: "\f057";
+   margin: 11px;
+   }
+
+#txtPorcentaje{
+  width: 40px;
+}
+
+
+
+.div-well-form{
+margin: 10px;
+border-radius: 10px;
+border-width: 2px;
+}
+
+
+#DivbtnGuardarCargo{
+   position: relative;
+   left: 830px;
+   top: 3px;
+}
+
+#divButtonAgrePersonal{
+   position: relative;
+   top: 25px;
+}
+
+
+
+div.well.well-ms{
+margin: 10px;
+border-radius: 10px;
+border-width: 2px;
+}
+
+div-panel-heading{
+   margin: -20px;
+   text-align:center;
+   font-size: 17px;
+   font-family: monospace
+}*/
+
+ /*nombree de clase + ul que es el hijo del que se le va a pegar la clase*/
+
+/*.lista-square ul{ 
+   list-style:square;
+}
+
+#divBtnRespon2{
+
+    margin-top: 45px;
+}
+
+.botonOculto {
+  position: relative;
+}
+.botonOculto input[type='submit'],.botonOculto input[type='button']{
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   width: 100%;
+   background-color: transparent;
+   border: none;
+}
+
+.bg-dangerr {
+   background-color: #fafafa;
+   color: #f05050!important;
+   border: 1px dashed;
+}
+
+.bg-dangerr2 {
+   background-color: #fafafa;
+   color: #f05050!important;
+   border: none;
+  
+   box-shadow: 0px 0px 9px 1px rgba(240, 80, 80, 0.38) inset;
+}*/
+
+ /* border: 1px dotted; */
+
+
+ ol.labels-list {
+    list-style-type: none;
+    list-style-type: decimal !ie; /*IE 7- hack*/
+     
+    margin: 0;
+    margin-left: 1em;
+    padding: 0;
+     
+    counter-reset: li-counter;
+}
+ol.labels-list > li{
+    position: relative;
+    margin-bottom: 1.5em;
+    padding: 1.5em;
+    background-color: #eaeaea;
+}
+ol.labels-list > li:before {
+    position: absolute;
+    top: -0.3em;
+    left: -0.5em;
+    width: 1.8em;
+    height: 1.2em;
+    font-size: 2em;
+    line-height: 1.2;
+    font-weight: bold;
+    text-align: center;
+    color: #464646;
+    background-color: #d0d0d0;
+    transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    z-index: 99;
+    overflow: hidden;
+    content: counter(li-counter);
+    counter-increment: li-counter;
+    border: 2px dotted #edf1f2;
+}
+.aspCheck{
+    border:1px solid #EDF1F2;
+    border-radius: 0 0 15px 1em;
+}
+.aspCheck,.aspCheck *{
+    position:relative;
+    border-radius: 1em;
+}
+.aspCheck input[type="radio"],.aspCheck input[type="checkbox"] {
+    display: block;
+    width: 0px;
+    height: 0px;
+    opacity: 0; 
+}
+
+.aspCheck input[type="radio"]:focus+label:before, .aspCheck input[type="checkbox"]:focus+label:before
+{
+border:2px solid  #18b;
+}
+.aspCheck input[type="radio"]~*
+,.aspCheck input[type="checkbox"]~* {
+    display: inline-block;
+}
+.aspCheck td {
+    padding:15px;
+    display:inline-block;
+    vertical-align: top;
+    width:33.333%;
+}
+.aspCheck.aspCheck-x1{
+    width:100%;
+}
+.aspCheck.aspCheck-x2{
+    width:50%;
+}
+.aspCheck.aspCheck-x3{
+    width:33.333%;
+}
+.aspCheck.aspCheck-x4{
+    width:25%;
+}
+/*=============================LABEL======================================*/
+.aspCheck input[type="radio"]+label
+,.aspCheck input[type="checkbox"]+label {
+    font-weight:100;
+    font-family:monospace;
+    padding-left: 35px;
+    vertical-align: initial;
+}
+/*=============================LABEL:before======================================*/
+
+.aspCheck input[type="radio"]+label:before
+,.aspCheck input[type="checkbox"]+label:before {
+    content:"";
+    background-color:#fff;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ccc;
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.aspCheck input[type="radio"]+label:before
+{
+    border-radius: 100%;
+
+}
+.aspCheck input[type="checkbox"]+label:before
+{
+    border-radius: 5px;
+    background-color:#fff;
+}
+/*=============================LABEL:after======================================*/
+.aspCheck input[type="radio"]+label:after
+,.aspCheck input[type="checkbox"]+label:after {
+    content:"";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.aspCheck input[type="radio"]:checked+label:before
+,.aspCheck input[type="checkbox"]:checked+label:before {
+    background-color: #1db8bd;
+    border:2px solid  #1db8bd;
+}
+.aspCheck input[type="radio"]+label:after
+{
+    color: #fff;
+    padding:4px;
+    content: "\f00c";
+    font: normal normal normal 16px/1 FontAwesome;*/
+    background-color: #1db8bd;
+
+}
+.aspCheck input[type="checkbox"]+label:after
+{
+    color:  #fff;
+    padding:4px;
+    content: "\f00c";
+    font: normal normal normal 16px/1 FontAwesome;*/
+}
+.aspCheck[disabled] input[type="radio"]+label, .aspCheck[disabled] input[type="checkbox"]+labellabel {
+    pointer-events: none;
+}
+
+.aspCheck[disabled] input[type="radio"]:checked+label:before, .aspCheck[disabled] input[type="checkbox"]:checked+label:before {
+    background-color: #999;
+    border: 2px solid #999;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .aspCheck td
+    ,.aspCheck.aspCheck-x1
+    ,.aspCheck.aspCheck-x2
+    ,.aspCheck.aspCheck-x3
+    ,.aspCheck.aspCheck-x4
+     {
+        width:100%;
+    }
+}
+
+.aspCheck, .aspCheck * {
+    position: relative;
+    border-radius: 1em;
+    list-style-type: none;
+}

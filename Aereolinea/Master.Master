@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Detalle.master.cs" Inherits="Aereolinea.Master" %>
+
+<%@ Import Namespace="Entidades.seguridad" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="headMaster" runat="server">
+    <%--<title>SION - Sistema de Información Oganizacional</title>--%>
+
+    <asp:ContentPlaceHolder runat="server" ID="contentHead">
+        <script>
+            function base64ToUint8Array(base64) {
+                var raw = atob(base64);
+                var uint8Array = new Uint8Array(raw.length);
+                for (var i = 0; i < raw.length; i++) {
+                    uint8Array[i] = raw.charCodeAt(i);
+                }
+                return uint8Array;
+            }
+        </script>
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="contentMenuModuloUPanel" runat="server">
+    <nav data-sidebar-anyclick-close="" class="sidebar">
+        <!-- START sidebar nav-->
+        <ul class="nav">
+            <!-- Iterates over all sidebar items-->
+            <li class="nav-buscar">
+                <div class="searchBar2 mh mv form-group has-feedback">
+                    <%--                    <input id="txtBuscarDetalleObjeto" type="search" class="form-control" autocomplete="off" placeholder="Buscar..."/>--%>
+                </div>
+            </li>
+            <asp:Repeater runat="server" ID="repeaterObjetosPermisos">
+                <ItemTemplate>
+                    <li class="itemBuscar">
+                        <a href='<%# String.Format("#obj_{0}",((objetoPermisoE)Container.DataItem).idObjeto) %>' title='<%# DataBinder.Eval(Container.DataItem,"objeto") %>' data-toggle="collapse" class="" aria-expanded="false">
+                            <em class='<%# DataBinder.Eval(Container.DataItem,"icono") %>'></em>
+                            <span data-localize="sidebar.nav.menu.MENU"><%# DataBinder.Eval(Container.DataItem,"objeto") %></span>
+                        </a>
+                        <ul id='<%# String.Format("obj_{0}",DataBinder.Eval(Container.DataItem, "idObjeto"))%>' class="nav sidebar-subnav collapse" aria-expanded="false">
+                            <li class="sidebar-subnav-header"><%# DataBinder.Eval(Container.DataItem,"objeto") %></li>
+
+                            <asp:Repeater ID="repeaterDetallePermisos" runat="server" DataSource='<%# DataBinder.Eval(Container.DataItem,"permisos") %>'>
+                                <ItemTemplate>
+                                    <li class='<%# ((detallePermisoE)Container.DataItem).estado=="True"?"":"inactivo" %>' style="border-top: 1px dotted; border-color: #cccccc;">
+                                        <a onclick="CambiarNuevo('<%# Request.QueryString["idUsuario"] %>', '<%# DataBinder.Eval(Container.DataItem,"permisoId") %>');" href='<%# ((detallePermisoE)Container.DataItem).estado=="True" && Encoding.UTF8.GetString(Convert.FromBase64String(((detallePermisoE)Container.DataItem).permisoId)) != "1365" ? String.Format("{0}?idUsuario={1}&idModulo={2}&idSucursal={3}&permisoId={4}",DataBinder.Eval(Container.DataItem,"ruta"),Request.QueryString["idUsuario"],Request.QueryString["idModulo"], Request.QueryString["idSucursal"], DataBinder.Eval(Container.DataItem,"permisoId")) : ((detallePermisoE)Container.DataItem).estado=="True" && Encoding.UTF8.GetString(Convert.FromBase64String(((detallePermisoE)Container.DataItem).permisoId)) == "1365" ? String.Format("{0}?token={1}&id={2}",DataBinder.Eval(Container.DataItem,"ruta"), TokenSVGAEvaluacion,DocTercero) : "#" %>' title='<%# DataBinder.Eval(Container.DataItem,"permiso") %>' target="<%# ((detallePermisoE)Container.DataItem).ruta.Substring(0, 1) != "/" ? "_blank" : "" %>">
+                                            <span data-localize="sidebar.nav.menu.SUBMENU" style="font-size: smaller;"><%# DataBinder.Eval(Container.DataItem,"permiso") %></span>
+                                            <%# DataBinder.Eval(Container.DataItem,"Nuevo") %>
+                                        </a>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </li>
+                </ItemTemplate>
+            </asp:Repeater>
+            <script>
+                function CambiarNuevo(IdUsuario, IdPermiso) {
+                    $.ajax({
+                        type: "POST",
+                        url: '../../../landingpage.aspx/ActualizarNuevo',
+                        data: '{IdUsuario : "' + IdUsuario + '", IdPermiso : "' + IdPermiso + '"}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: true,
+                        success: function (data) {
+                        }
+                    });
+                }
+            </script>
+            <asp:ContentPlaceHolder runat="server" ID="contentItemsMenuUPanel">
+            </asp:ContentPlaceHolder>
+        </ul>
+        <!-- END sidebar nav-->
+    </nav>
+
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="contentMenuModulo" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="contentBodyUPanel" runat="server">
+    <%--    <div runat="server" id="contenedorCC" class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-5">
+                <p class="text-danger">Los campos marcados con (*) son obligatorios.</p>
+            </div>
+            <div class="col-lg-7 text-right" style="color: Red;">
+                <asp:Label Text="" ID="lblFechaInfo" runat="server" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-4" id="IDaño">
+                <span id="MainContent_labeldep1">Año <i style="color: red;">*</i> : </span>
+                <asp:DropDownList runat="server" ID="dropAñoSelect" CssClass="form-control chosenSelect" AutoPostBack="true" CausesValidation="true" ValidationGroup="SeleccionarAño" OnSelectedIndexChanged="dropAñoSelect_SelectedIndexChanged" AppendDataBoundItems="true">
+                    <asp:ListItem Selected="True" Text="Seleccione..." Value=""></asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="dropAñoSelect" Display="Dynamic" SetFocusOnError="true" ValidationGroup="SeleccionarAño" CssClass="text-warning">
+                    Debe seleccionar un año.
+                </asp:RequiredFieldValidator>
+            </div>
+
+            <div class="col-lg-4" id="DropDepRectoria">
+                <span id="MainContent_labeldep2">Centro <i style="color: red;">*</i> :</span>
+                <asp:DropDownList runat="server" ID="dropDepSelect" CssClass="form-control chosenSelect" AutoPostBack="true" CausesValidation="true" ValidationGroup="SeleccionarCentro" OnSelectedIndexChanged="dropDepSelect_SelectedIndexChanged" AppendDataBoundItems="true">
+                    <asp:ListItem Selected="True" Text="Seleccione..." Value="0"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="dropDepSelect" Display="Dynamic" SetFocusOnError="true" ValidationGroup="SeleccionarCentro" CssClass="text-warning">
+                    Debe seleccionar un centro de costos.
+                </asp:RequiredFieldValidator>
+            </div>
+
+            <div class="col-lg-4" id="IdTipoPlan">
+                <span id="MainContent_labeldep3">Plan <i style="color: red;">*</i> :</span>
+                <asp:DropDownList runat="server" CssClass="form-control chosenSelect" ID="DropDownplan" AutoPostBack="true" CausesValidation="true" OnSelectedIndexChanged="DropDownplan_SelectedIndexChanged" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="DropDownplan" Display="Dynamic" SetFocusOnError="true" ValidationGroup="SeleccionarPlan" CssClass="text-warning">
+                    Debe seleccionar un plan.
+                </asp:RequiredFieldValidator>
+            </div>
+
+        </div>
+           </div>--%>
+
+
+
+    <asp:ContentPlaceHolder runat="server" ID="contentBodyUPanel">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="contentBody" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="contentBody">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content8" ContentPlaceHolderID="Modals" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="Modals">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="outUpPanel" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="outUpPanel">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+
+    
