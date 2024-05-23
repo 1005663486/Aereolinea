@@ -16,9 +16,6 @@ namespace Aereolinea
         {
             if (!IsPostBack)
             {
-           
-
-
             }
             ListarVuelos();
 
@@ -169,6 +166,7 @@ namespace Aereolinea
                         {
                             ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al actualizar el vuelo.', 'error');", true);
                         }
+                        ListarVuelos();
                     }
                     catch (Exception ex)
                     {
@@ -183,13 +181,55 @@ namespace Aereolinea
             }
           
         }
-
         protected void Eliminar_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            int idVuelo = Convert.ToInt32(btn.CommandArgument);
+            Button btnEliminar = (Button)sender;
+            string idVuelo = btnEliminar.CommandArgument;
 
-            // Lógica para eliminar el vuelo con el ID proporcionado
+
+            try
+            {
+                // Crear y abrir conexión
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_DeleteVuelo";
+                    cmd.Parameters.AddWithValue("@IdVuelo", idVuelo);
+                    cmd.Connection = conn;
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        // Verificar si se realizaron cambios en la base de datos
+                        if (rowsAffected > 0)
+                        {
+                            // La actualización fue exitosa
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('¡Éxito!', 'Se eliminó el vuelo correctamente.', 'success');", true);
+                            ListarVuelos();
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al eliminar el vuelo.', 'error');", true);
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+
+                // Actualizar la lista de vuelos después de eliminar el vuelo
+                ListarVuelos();
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción que ocurra durante el proceso de eliminación
+                // Aquí puedes mostrar un mensaje de error al usuario, hacer un registro de errores, etc.
+                Console.WriteLine("Error al eliminar el vuelo: " + ex.Message);
+            }
         }
 
     }

@@ -29,9 +29,9 @@
         }
 
         body {
-            background-image: url('Images/FondoAvion.png');
+            background-image: url('Images/AVION1.jpg');
             background-size: cover;
-            background-position: top center;
+            background-position:center;
             height: 100vh;
             margin: 0;
             padding: 0;
