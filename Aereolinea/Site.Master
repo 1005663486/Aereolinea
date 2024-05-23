@@ -1,19 +1,29 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Aereolinea.SiteMaster" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> Aereolinea</title>
 
     <!-- Estilos CSS -->
-    <style>
+    <style> 
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
+            header {
+            text-align: center;
+            padding: 20px;
+            background-color: #322065;
+            color: #f5f5f5;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
 
         .container {
             display: flex;
@@ -21,7 +31,7 @@
 
         .sidebar {
             width: 200px;
-            background-color: #f8f9fa;
+       background-color: #B799F8;
             position: sticky;
             top: 0;
             height: 100vh;
@@ -49,10 +59,12 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #f8f9fa;
+            background-color: #322065;
             width: 100%;
             box-sizing: border-box;
+            color: #f5f5f5
         }
+
     </style>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
@@ -80,7 +92,10 @@
             </Scripts>
         </asp:ScriptManager>
 
-
+        <header>
+            <!-- Aquí puedes agregar tu contenido de encabezado -->
+            Encabezado
+        </header>
         <div class="container">
             <div class="sidebar">
                 <a runat="server" href="~/">Inicio</a>
@@ -98,7 +113,10 @@
 
         <!-- Pie de página u otras secciones comunes -->
         <footer>
-            <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+            <p>
+                &copy; Usted ha aceptado nuestra política de protección de datos el día <%: DateTime.Now%> desde el equipo DESARROLLO4-PC - 192.168.3.168
+Para ver la política de protección de datos personales haz clicaquí
+            </p>
         </footer>
     </form>
 </body>

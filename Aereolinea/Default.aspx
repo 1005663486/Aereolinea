@@ -1,24 +1,47 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Aereolinea._Default" enableEventValidation="false" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Aereolinea._Default" EnableEventValidation="false" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <script src="Scripts/Vuelos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-   
 
+
+ 
     <script>
-    $(document).ready(function () {
-        $('#modalDetallesVuelo').on('show.bs.modal', function () {
-            $('body').addClass('modal-open-noscroll');
-        });
+            $(document).ready(function () {
+                $('#modalDetallesVuelo').on('show.bs.modal', function () {
+                    $('body').css('overflow', 'hidden');
+                    $('body').css('background-color', 'rgba(0, 0, 0, 0.5)');
+                });
 
-        $('#modalDetallesVuelo').on('hidden.bs.modal', function () {
-            $('body').removeClass('modal-open-noscroll');
-        });
-    });
+                $('#modalDetallesVuelo').on('hidden.bs.modal', function () {
+                    $('body').css('overflow', 'auto');
+                    $('body').css('background-color', 'transparent');
+                });
+            });
     </script>
     <style>
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffa0;
+        }
+
+        body {
+            background-image: url('Images/FondoAvion.png');
+            background-size: cover;
+            background-position: top center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-repeat: no-repeat; /* Evita que la imagen se repita */        
+        }
+
+        body::-webkit-scrollbar {
+            display: none; /* Oculta la barra de desplazamiento en Chrome, Safari y otros navegadores basados en WebKit */
+        }
+
         .btn-separado {
             margin-right: 10px; /* Ajusta este valor según el espacio deseado entre los botones */
         }
@@ -26,27 +49,33 @@
         .modal-footer {
             text-align: center;
         }
- 
-    .modal-open-noscroll {
-        overflow: hidden;
-    }
 
+        .modal-open-noscroll {
+            overflow: hidden;
+        }
+
+        /*body.modal-open-noscroll {
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0);*/ /* Fondo transparente */
+            /*transition: background-color 0.3s ease;*/ /* Transición suave */
+        /*}*/
+
+            /* Cuando se abre el modal, cambia la opacidad del fondo */
+            /*body.modal-open-noscroll.modal-open {
+                background-color: rgba(0, 0, 0, 0.5);*/ /* Fondo semi-transparente */
+            /*}*/
     </style>
-    <div class="container">
-        <div class="row">
+    <div class="containerImage">
+        <div>
             <div class="col-md-12">
                 <!-- Contenido principal -->
-                <div class="jumbotron">
+                <%--  <div class="jumbotron">
                     <h1>Bienvenido a nuestra página de vuelos</h1>
                     <p class="lead">Encuentra los mejores vuelos para tu próximo viaje</p>
                     <p><a href="http://www.tuwebdevuelos.com" class="btn btn-primary btn-lg">Explora ahora &raquo;</a></p>
-                </div>
+                </div>--%>
                 <asp:ListView ID="LVVuelos" runat="server" ItemPlaceholderID="itemPlaceholder">
-                    <LayoutTemplate>
-                        <div class="row">
-                            <asp:PlaceHolder runat="server" ID="itemPlaceholder"></asp:PlaceHolder>
-                        </div>
-                    </LayoutTemplate>
+
                     <ItemTemplate>
                         <div class="col-md-4">
                             <div class="panel panel-default">
@@ -85,7 +114,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title text-center">Detalles del Vuelo</h4>
                 </div>
-                <div class="modal-body" style="padding-left: 60px;"">
+                <div class="modal-body" style="padding-left: 60px;">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6">
@@ -147,12 +176,12 @@
 
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="btnEditar" runat="server" Text='Editar' CommandArgument='<%# Eval("IdVuelo") %>' OnClick="Editar_Click" CssClass="btn btn-warning" style="margin-right:300px"/>
+                    <asp:Button ID="btnEditar" runat="server" Text='Editar' CommandArgument='<%# Eval("IdVuelo") %>' OnClick="Editar_Click" CssClass="btn btn-warning" Style="margin-right: 300px" />
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
 
         </div>
-        </div>
+    </div>
 
 </asp:Content>
