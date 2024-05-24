@@ -10,15 +10,15 @@ using System.Data;
 
 namespace Aereolinea
 {
-    public partial class _Default : Page
+    public partial class _Vuelos : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
             }
             ListarVuelos();
-
         }
         private void ListarVuelos()
         {

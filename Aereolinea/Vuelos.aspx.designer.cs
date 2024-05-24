@@ -11,7 +11,7 @@ namespace Aereolinea
 {
 
 
-    public partial class _Default
+    public partial class _Vuelos
     {
 
         /// <summary>

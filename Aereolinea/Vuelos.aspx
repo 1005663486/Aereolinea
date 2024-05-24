@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Aereolinea._Default" EnableEventValidation="false" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vuelos.aspx.cs" Inherits="Aereolinea._Vuelos" EnableEventValidation="false" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -78,7 +78,7 @@
 
                     <ItemTemplate>
                         <div class="col-md-4">
-                            <div class="panel panel-default">
+                            <div class="panel panel-Vuelos">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Vuelo <%# Eval("NumeroVuelo") %></h3>
                                 </div>
