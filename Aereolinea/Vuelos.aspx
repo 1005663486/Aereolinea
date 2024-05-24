@@ -54,20 +54,22 @@
             overflow: hidden;
         }
 
-        /*body.modal-open-noscroll {
-            overflow: hidden;
-            background-color: rgba(0, 0, 0, 0);*/ /* Fondo transparente */
-            /*transition: background-color 0.3s ease;*/ /* Transición suave */
-        /*}*/
-
-            /* Cuando se abre el modal, cambia la opacidad del fondo */
-            /*body.modal-open-noscroll.modal-open {
-                background-color: rgba(0, 0, 0, 0.5);*/ /* Fondo semi-transparente */
-            /*}*/
+       /* Estilo para el título */
+    .titulo-vuelos {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente elegante */
+        color: #fff; /* Color del texto */
+        text-align: center;
+        margin-top: 50px; /* Ajusta este valor según sea necesario */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para destacarlo */
+    }
+    .ridge {border-style: ridge;}
     </style>
     <div class="containerImage">
         <div>
             <div class="col-md-12">
+              <h1 class="titulo-vuelos ridge">Vuelos programados</h1>
+                <br />
+
                 <!-- Contenido principal -->
                 <%--  <div class="jumbotron">
                     <h1>Bienvenido a nuestra página de vuelos</h1>
@@ -78,7 +80,7 @@
 
                     <ItemTemplate>
                         <div class="col-md-4">
-                            <div class="panel panel-Vuelos">
+                            <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Vuelo <%# Eval("NumeroVuelo") %></h3>
                                 </div>
