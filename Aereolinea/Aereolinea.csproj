@@ -110,7 +110,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\DataTable\DataTables.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Vuelos.aspx" />
     <Content Include="favicon.ico" />
@@ -126,11 +125,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Images\4071704.png" />
     <Content Include="Images\avion.jpg" />
-    <Content Include="Images\AVION1.jpg" />
     <Content Include="Images\FondoAvion.png" />
     <Content Include="Tripulacion.aspx" />
     <Content Include="Mantenimiento.aspx" />
-    <Content Include="Master.Master" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -180,8 +177,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DATOS\AereolineaD.cs" />
-    <Compile Include="DATOS\Conexion.cs" />
     <Compile Include="Vuelos.aspx.cs">
       <DependentUpon>Vuelos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -206,14 +201,6 @@
     <Compile Include="Mantenimiento.aspx.designer.cs">
       <DependentUpon>Mantenimiento.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Master.Master.cs">
-      <DependentUpon>Master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master.Master.designer.cs">
-      <DependentUpon>Master.Master</DependentUpon>
-    </Compile>
-    <Compile Include="NEGOCIO\AereolineaN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

@@ -22,7 +22,7 @@ namespace Aereolinea
         }
         private void ListarVuelos()
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -86,7 +86,7 @@ namespace Aereolinea
         {
             DataTable dtVuelo = new DataTable();
 
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -132,7 +132,7 @@ namespace Aereolinea
                 string tripulante = txtTripulante.Text;
 
                 // Llamar al procedimiento almacenado para actualizar el vuelo
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand("sp_UpdateVuelo", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -186,7 +186,7 @@ namespace Aereolinea
             try
             {
                 // Crear y abrir conexión
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;

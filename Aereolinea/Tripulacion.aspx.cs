@@ -65,7 +65,7 @@ namespace Aereolinea
                 }
 
                 // Crear y abrir conexión
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -118,7 +118,7 @@ namespace Aereolinea
         }
         private void ListarTripulacion()
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -158,7 +158,7 @@ namespace Aereolinea
                 try
                 {
                     // Crear y abrir conexión
-                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
                     {
                         SqlCommand cmd = new SqlCommand();
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -239,7 +239,7 @@ namespace Aereolinea
         {
             DataTable dtTripulacion = new DataTable();
 
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -283,7 +283,7 @@ namespace Aereolinea
                 TimeSpan horario = TimeSpan.Parse(ddlHorario.SelectedValue);
 
                 // Llamar al procedimiento almacenado para actualizar la información del tripulante
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand("sp_UpdateTripulacion", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -337,7 +337,7 @@ namespace Aereolinea
         }
         private bool UsuarioExiste(string NumeroID)
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnDB"].ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Tripulacion WHERE NumeroID = @NumeroID", conn);
                 cmd.Parameters.AddWithValue("@NumeroID", NumeroID);
