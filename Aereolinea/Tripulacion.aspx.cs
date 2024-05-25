@@ -122,7 +122,7 @@ namespace Aereolinea
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "sp_GetAllTripulacion"; // Cambia el nombre del procedimiento almacenado según tu implementación
+                cmd.CommandText = "sp_GetAllTripulacion"; 
                 cmd.Connection = conn;
 
                 try
@@ -229,8 +229,6 @@ namespace Aereolinea
                 txtCorreo.Text = dtTripulante.Rows[0]["Correo"].ToString();
                 ddlEstado.Text = dtTripulante.Rows[0]["Estado"].ToString();
                 ddlHorario.Text = dtTripulante.Rows[0]["Hoario"].ToString();
-                // Luego, abrimos el modal
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "Vuelos", "abrirModal();", true);
             }
             else
             {
@@ -262,7 +260,6 @@ namespace Aereolinea
                 catch (Exception ex)
                 {
                     // Manejar errores de conexión o consulta
-                    // Por ejemplo, puedes mostrar un mensaje de error o registrar el error en un archivo de registro
                 }
             }
 

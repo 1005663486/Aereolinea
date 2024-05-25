@@ -61,8 +61,6 @@ namespace Aereolinea
             if (dtVuelo.Rows.Count > 0)
             {
                 // Obtenemos el valor de la columna 'Aeronave' del primer registro (suponiendo que solo haya un registro)
-                string destino = dtVuelo.Rows[0]["Aeronave"].ToString();
-
                 txtAeronave.Text = dtVuelo.Rows[0]["Aeronave"].ToString();
                 txtFechaSalida.Text = dtVuelo.Rows[0]["FechaSalida"].ToString();
                 txtFechaLlegada.Text = dtVuelo.Rows[0]["FechaLlegada"].ToString();
@@ -185,8 +183,6 @@ namespace Aereolinea
         {
             Button btnEliminar = (Button)sender;
             string idVuelo = btnEliminar.CommandArgument;
-
-
             try
             {
                 // Crear y abrir conexión
@@ -220,7 +216,6 @@ namespace Aereolinea
                         throw;
                     }
                 }
-
                 // Actualizar la lista de vuelos después de eliminar el vuelo
                 ListarVuelos();
             }
