@@ -171,7 +171,11 @@
                 <asp:BoundField DataField="TipoId" HeaderText="Tipo de Identificación" />
                 <asp:BoundField DataField="Celular" HeaderText="Celular" />
                 <asp:BoundField DataField="Correo" HeaderText="Correo" />
-                <asp:BoundField DataField="Estado" HeaderText="Estado" />
+                <asp:TemplateField HeaderText="Estado">
+                <ItemTemplate>
+                    <asp:Label ID="lblEstado" runat="server" Text='<%# Eval("Estado").ToString() == "1" ? "Activo" : "Inactivo" %>'></asp:Label>
+                </ItemTemplate>
+                </asp:TemplateField>
                 <asp:CommandField ShowDeleteButton="True" DeleteText="Eliminar" />
                 <asp:TemplateField HeaderText="Acciones">
         <ItemTemplate>
