@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vuelos.aspx.cs" Inherits="Aereolinea._Vuelos" EnableEventValidation="false" %>
+﻿<%@ Page Title="Vuelos -" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vuelos.aspx.cs" Inherits="Aereolinea._Vuelos" EnableEventValidation="false" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -9,17 +9,17 @@
 
  
     <script>
-            $(document).ready(function () {
-                $('#modalDetallesVuelo').on('show.bs.modal', function () {
-                    $('body').css('overflow', 'hidden');
-                    $('body').css('background-color', 'rgba(0, 0, 0, 0.5)');
-                });
-
-                $('#modalDetallesVuelo').on('hidden.bs.modal', function () {
-                    $('body').css('overflow', 'auto');
-                    $('body').css('background-color', 'transparent');
-                });
+        $(document).ready(function () {
+            $('#modalDetallesVuelo').on('show.bs.modal', function () {
+                $('body').css('overflow', 'hidden');
+                $('body').css('background-color', 'rgba(0, 0, 0, 0.5)');
             });
+
+            $('#modalDetallesVuelo').on('hidden.bs.modal', function () {
+                $('body').css('overflow', 'auto');
+                $('body').css('background-color', 'transparent');
+            });
+        });
     </script>
     <style>
         .content {

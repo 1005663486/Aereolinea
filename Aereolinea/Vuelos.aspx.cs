@@ -71,8 +71,8 @@ namespace Aereolinea
                 txtSillas.Text = dtVuelo.Rows[0]["Sillas"].ToString();
                 txtPuertaAbordaje.Text = dtVuelo.Rows[0]["PuertaAbordaje"].ToString();
                 txtTripulante.Text = dtVuelo.Rows[0]["Tripulante"].ToString();
-                txtEstado.Text= dtVuelo.Rows[0]["Estado"].ToString();
-                txtIdVuelo.Text= dtVuelo.Rows[0]["IdVuelo"].ToString();
+                txtEstado.Text = dtVuelo.Rows[0]["Estado"].ToString();
+                txtIdVuelo.Text = dtVuelo.Rows[0]["IdVuelo"].ToString();
                 // Luego, abrimos el modal
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Vuelos", "abrirModal();", true);
             }
@@ -81,6 +81,7 @@ namespace Aereolinea
                 // Manejar el caso en el que no se encuentren datos para el ID del vuelo proporcionado
             }
         }
+
         // Método para llamar al procedimiento almacenado y obtener el vuelo por su ID
         private DataTable ObtenerVueloPorId(int idVuelo)
         {
@@ -112,7 +113,7 @@ namespace Aereolinea
             }
 
             return dtVuelo;
-        }  
+        }
         protected void Editar_Click(object sender, EventArgs e)
         {
             try
@@ -177,7 +178,7 @@ namespace Aereolinea
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al actualizar el vuelo.', 'error');", true);
             }
-          
+
         }
         protected void Eliminar_Click(object sender, EventArgs e)
         {
