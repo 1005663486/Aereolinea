@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Mantenimiento -" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Mantenimiento.aspx.cs" Inherits="Aereolinea._HistorialMantenimiento" EnableEventValidation="false" %>
+
+<%@ Page Title="Mantenimiento -" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Mantenimiento.aspx.cs" Inherits="Aereolinea._HistorialMantenimiento" EnableEventValidation="false" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -51,6 +52,7 @@
             overflow: hidden;
         }
 
+
         .titulo-mantenimiento {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #fff;
@@ -68,8 +70,10 @@
         <div>
             <div class="col-md-12">
                 <h1 class="titulo-mantenimiento ridge">Crear mantenimiento</h1>
-                 
-                <asp:ListView ID="LVCrearMantenimiento" runat="server" ItemPlaceholderID="itemPlaceholder">
+                 <p><strong>Aeronave:</strong> <asp:DropDownList ID="ddlAeronavesActivas" runat="server"></asp:DropDownList>
+                <asp:Button ID="btnBuscarMantenimientos" runat="server" Text="Buscar Historial" OnClick="BuscarMantenimientos_Click" />
+                  
+                   <asp:ListView ID="LVCrearMantenimiento" runat="server" ItemPlaceholderID="itemPlaceholder">
                     <ItemTemplate>
                         <div class="col-md-4">
                             <div class="panel panel-default">
@@ -90,6 +94,7 @@
                                         <asp:Button ID="btnVer" runat="server" Text='Ver' CommandArgument='<%# Eval("IdMantenimiento") %>' OnClick="Ver_Click" CssClass="btn btn-info btn-separado" />
                                         <asp:Button ID="btnEliminar" runat="server" Text='Eliminar' CommandArgument='<%# Eval("IdMantenimiento") %>' OnClick="Eliminar_Click" CssClass="btn btn-danger" />
                                     </div>
+
                                 <asp:Button ID="btnBuscarHistorial" runat="server" Text="Buscar Historial Mantenimiento" OnClick="BuscarHistorial_Click" />
                                 </div>
                             </div>
@@ -111,7 +116,40 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6">
-     
+                                <div class="form-group">
+                                    <label for="txtAeronave">Aeronave:</label>
+                                    <asp:TextBox ID="txtAeronave" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtFechaInicio">Fecha de Inicio:</label>
+                                    <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtFechaFin">Fecha de Fin:</label>
+                                    <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtTipoMantenimiento">Tipo de Mantenimiento:</label>
+                                    <asp:TextBox ID="txtTipoMantenimiento" runat="server" CssClass="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtResponsable">Responsable:</label>
+                                    <asp:TextBox ID="txtResponsable" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEstado">Estado:</label>
+                                    <asp:TextBox ID="txtEstado" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtObservaciones">Observaciones:</label>
+                                    <asp:TextBox ID="txtObservaciones" runat="server" CssClass="form-control" />
+                                </div>
+                                <asp:TextBox ID="txtIdMantenimiento" runat="server" Visible="false"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="btnEditar" runat="server" Text='Editar' CommandArgument='<%# Eval("IdMantenimiento") %>' OnClick="Editar_Click" CssClass="btn btn-warning" Style="margin-right: 300px" />
