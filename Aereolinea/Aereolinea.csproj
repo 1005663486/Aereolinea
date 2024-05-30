@@ -111,6 +111,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="HistorialMantenimiento.aspx" />
+    <Content Include="Scripts\HistorialMantenimiento.js" />
     <Content Include="Vuelos.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -176,6 +178,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialMantenimiento.aspx.cs">
+      <DependentUpon>HistorialMantenimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistorialMantenimiento.aspx.designer.cs">
+      <DependentUpon>HistorialMantenimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vuelos.aspx.cs">
       <DependentUpon>Vuelos.aspx</DependentUpon>
