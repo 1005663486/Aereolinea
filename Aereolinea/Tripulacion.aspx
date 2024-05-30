@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tripulacion.aspx.cs" Inherits="Aereolinea.Tripulacion" EnableEventValidation="false" %>
+﻿<%@ Page Title="Tripulacion -" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tripulacion.aspx.cs" Inherits="Aereolinea.Tripulacion" EnableEventValidation="false" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
