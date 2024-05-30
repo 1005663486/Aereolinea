@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Aereolinea
 {
-    public partial class _Mantenimiento : Page
+    public partial class _HistorialMantenimiento : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,19 +40,16 @@ namespace Aereolinea
                         DataTable dtAeronaves = new DataTable();
                         dtAeronaves.Load(reader);
 
-                        // Depuración: imprimir el número de filas cargadas
-                        Console.WriteLine("Número de aeronaves activas: " + dtAeronaves.Rows.Count);
+                        ddlAeronavesActivas.DataSource = dtAeronaves;
+                        ddlAeronavesActivas.DataTextField = "Codigo"; // Nombre de la columna que deseas mostrar
+                        ddlAeronavesActivas.DataValueField = "IdAeronave"; // Nombre de la columna que contiene el ID
+                        ddlAeronavesActivas.DataBind();
 
-                        //ddlAeronavesActivas.DataSource = dtAeronaves;
-                        //ddlAeronavesActivas.DataTextField = "Modelo"; // Nombre de la columna que deseas mostrar
-                        //ddlAeronavesActivas.DataValueField = "IdAeronave"; // Nombre de la columna que contiene el ID
-                        //ddlAeronavesActivas.DataBind();
-
-                        //ddlAeronavesActivas.Items.Insert(0, new ListItem("Seleccione una aeronave", "0"));
+                        ddlAeronavesActivas.Items.Insert(0, new ListItem("Seleccione una aeronave", "0"));
                     }
                     else
                     {
-                        //ddlAeronavesActivas.Items.Insert(0, new ListItem("No hay aeronaves activas", "0"));
+                        ddlAeronavesActivas.Items.Insert(0, new ListItem("No hay aeronaves activas", "0"));
                     }
                     reader.Close();
 
@@ -90,7 +87,8 @@ namespace Aereolinea
                     DataTable dtMantenimientos = new DataTable();
                     dtMantenimientos.Load(reader);
 
-                    
+                    LVHistorialMantenimiento.DataSource = dtMantenimientos;
+                    LVHistorialMantenimiento.DataBind();
 
                     reader.Close();
                 }
@@ -101,6 +99,18 @@ namespace Aereolinea
             }
         }
 
+        protected void BuscarMantenimientos_Click(object sender, EventArgs e)
+        {
+            int aeronaveId = Convert.ToInt32(ddlAeronavesActivas.SelectedValue);
+            if (aeronaveId > 0)
+            {
+                ListarMantenimientos(aeronaveId);
+            }
+            else
+            {
+                ListarMantenimientos(); // Mostrar todos los mantenimientos si no se selecciona ninguna aeronave
+            }
+        }
         protected void Ver_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -109,9 +119,15 @@ namespace Aereolinea
 
             if (dtMantenimiento.Rows.Count > 0)
             {
-               
+                txtFechaInicio.Text = dtMantenimiento.Rows[0]["FechaInicio"].ToString();
+                txtFechaFin.Text = dtMantenimiento.Rows[0]["FechaFin"].ToString();
+                txtTipoMantenimiento.Text = dtMantenimiento.Rows[0]["TipoManetimiento"].ToString();
+                txtResponsable.Text = dtMantenimiento.Rows[0]["Responsable"].ToString();
+                txtEstado.Text = dtMantenimiento.Rows[0]["Estado"].ToString();
+                txtCodigo.Text = dtMantenimiento.Rows[0]["Codigo"].ToString();
+                txtObservaciones.Text = dtMantenimiento.Rows[0]["Observaciones"].ToString();
 
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Mantenimiento", "abrirModal();", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "HistorialMantenimiento", "abrirModal();", true);
             }
             else
             {
@@ -151,37 +167,25 @@ namespace Aereolinea
 
         protected void Editar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
-                {
-                    SqlCommand cmd = new SqlCommand("sp_UpdateMantenimiento", conn);
-                    
+            Button btn = (Button)sender;
+            int IdAeronave = Convert.ToInt32(btn.CommandArgument);
+            DataTable dtMantenimiento = ObtenerMantenimientoPorIdAeronave(IdAeronave);
 
-                    try
-                    {
-                        conn.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('¡Éxito!', 'La actualización fue exitosa.', 'success');", true);
-                            ListarMantenimientos();
-                        }
-                        else
-                        {
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al actualizar el mantenimiento.', 'error');", true);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        // Manejar errores de conexión o consulta
-                    }
-                }
-            }
-            catch (Exception)
+            // Verificamos si se encontraron datos en el DataTable
+            if (dtMantenimiento.Rows.Count > 0)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al actualizar el mantenimiento.', 'error');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "MostrarPanelScript", "mostrarPanel();", true);
+                txtFechaInicio.Text = dtMantenimiento.Rows[0]["FechaInicio"].ToString();
+                txtFechaFin.Text = dtMantenimiento.Rows[0]["FechaFin"].ToString();
+                txtTipoMantenimiento.Text = dtMantenimiento.Rows[0]["TipoManetimiento"].ToString();
+                txtResponsable.Text = dtMantenimiento.Rows[0]["Responsable"].ToString();
+                txtEstado.Text = dtMantenimiento.Rows[0]["Estado"].ToString();
+                txtCodigo.Text = dtMantenimiento.Rows[0]["Codigo"].ToString();
+                txtObservaciones.Text = dtMantenimiento.Rows[0]["Observaciones"].ToString();
+            }
+            else
+            {
+                // Manejar el caso en el que no se encuentren datos para el ID del vuelo proporcionado
             }
         }
 
