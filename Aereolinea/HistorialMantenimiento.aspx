@@ -7,12 +7,12 @@
 
     <script>
         $(document).ready(function () {
-            $('#modalDetallesMantenimiento').on('show.bs.modal', function () {
+            $('#modalDetallesHistorialMantenimiento').on('show.bs.modal', function () {
                 $('body').css('overflow', 'hidden');
                 $('body').css('background-color', 'rgba(0, 0, 0, 0.5)');
             });
 
-            $('#modalDetallesMantenimiento').on('hidden.bs.modal', function () {
+            $('#modalDetallesHistorialMantenimiento').on('hidden.bs.modal', function () {
                 $('body').css('overflow', 'auto');
                 $('body').css('background-color', 'transparent');
             });
@@ -23,8 +23,12 @@
             flex: 1;
             padding: 20px;
             background-color: #ffa0;
+            margin-bottom: 10%;
         }
-
+        .Datos .panel{
+            margin: 10px;
+            background-color: aliceblue;
+        }
         body {
             background-image: url('Images/FondoAvion.png');
             background-size: cover;
@@ -32,7 +36,6 @@
             height: 100vh;
             margin: 0;
             padding: 0;
-            background-repeat: no-repeat;
         }
 
         body::-webkit-scrollbar {
@@ -50,6 +53,9 @@
         .modal-open-noscroll {
             overflow: hidden;
         }
+        .panel{
+            margin: 5px;
+        }
 
         .titulo-historial {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -58,51 +64,66 @@
             margin-top: 50px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-
+        .no-historial-message {
+            font-size: 18px;
+            color: #dc3545; 
+            font-weight: bold;
+            margin-top: 100px;
+            text-align: center;
+            border: 2px solid #dc3545; 
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f8d7da;
+        }
         .ridge {
             border-style: ridge;
         }
     </style>
 
-    <div class="containerImage">
-        <div>
-            <div class="col-md-12">
+    <div class="containerImage Datos">
+            <div class="col-md-12 col-lg-12 col-12 col-xs-12">
                 <h1 class="titulo-historial ridge">Historial de Mantenimiento</h1>
-               <div class="align-items-center">
+               <div class="align-items-center text-center" style="font-size:18px; margin:20px">
                    <strong>Aeronave:</strong>
                     <asp:DropDownList ID="ddlAeronavesActivas" runat="server"></asp:DropDownList>
                     <asp:Button ID="btnBuscarMantenimientos" runat="server" Text="Buscar Historial" OnClick="BuscarMantenimientos_Click" />
                </div> 
-
                 <asp:ListView ID="LVHistorialMantenimiento" runat="server" ItemPlaceholderID="itemPlaceholder">
-                    <ItemTemplate>
-                        <div class="col-md-4">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Mantenimiento del <%# Eval("Codigo") %></h3>
-                                </div>
-                                <div class="panel-body">
-                                    <p><strong>Modelo:</strong> <%# Eval("Aeronave") %></p>
-                                    <p><strong>Observaciones:</strong> <%# Eval("Observaciones") %></p>
-                                    <p><strong>Fecha de Inicio:</strong> <%# Eval("FechaInicio") %></p>
-                                    <p><strong>Fecha de Fin:</strong> <%# Eval("FechaFin") %></p>
-                                    <p><strong>Tipo de Mantenimiento:</strong> <%# Eval("TipoManetimiento") %></p>
-                                    <p><strong>Responsable:</strong> <%# Eval("Responsable") %></p>
-                                    <p><strong>Estado:</strong> <%# Eval("Estado") %></p>
-                                    <p><strong>Codigo:</strong> <%# Eval("Codigo") %></p>
-                                    <div class="btn-group" role="group" aria-label="Opciones">
-                                        <asp:Button ID="btnVer" runat="server" Text='Ver' CommandArgument='<%# Eval("IdMantenimiento") %>' OnClick="Ver_Click" CssClass="btn btn-info btn-separado" />
-                                        <asp:Button ID="btnEliminar" runat="server" Text='Eliminar' CommandArgument='<%# Eval("IdMantenimiento") %>' OnClick="Eliminar_Click" CssClass="btn btn-danger" />
+                        <ItemTemplate>
+                            <div class="col-md-5 col-4 col-xs-6 col-lg-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Mantenimiento del <%# Eval("Codigo") %></h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <p><strong>Fecha de inicio:</strong> <%# Eval("FechaInicio") %></p>
+                                                <p><strong>Fecha de fin:</strong> <%# Eval("FechaFin") %></p>
+                                                <p><strong>Observaciones:</strong> <%# Eval("Observaciones") %></p>
+                                                <p><strong>Responsable:</strong> <%# Eval("Responsable") %></p>
+                                                <p><strong>Estado:</strong> <%# Eval("Estado") %></p>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group col-md-12 col-lg-12 col-12 col-xs-12" role="group" aria-label="Opciones">
+                                            <div class="col-md-6 col-6 col-xs-6 col-lg-6 text-right">
+                                                <asp:Button ID="Button1" runat="server" Text='Ver' CommandArgument='<%# Eval("IdMantenimiento") %>' OnClick="Ver_Click" CssClass="btn btn-info btn-separado" />
+                                            </div>
+                                            <div class="col-md-6 col-6 col-xs-6 col-lg-6 text-left">
+                                               <asp:Button ID="btnEliminar" runat="server" Text='Eliminar' CommandArgument='<%# Eval("IdMantenimiento") %>' OnClick="Eliminar_Click" CssClass="btn btn-danger" />
+                                            </div>  
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </ItemTemplate>
-                </asp:ListView>
+                        </ItemTemplate>
+                </asp:ListView>  
             </div>
-        </div>
+     </div>
+    <div class="text-center">
+         <asp:Label ID="lblNoHistorial" runat="server" Text="No hay historial de mantenimientos." Visible="false" CssClass="no-historial-message"></asp:Label>
     </div>
-
+   
     <div id="modalDetallesHistorialMantenimiento" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -115,35 +136,39 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtFechaInicio">Fecha de Inicio:</label>
-                                    <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" />
+                                    <label for="txtModelo">Modelo de la aeronave:</label>
+                                    <asp:TextBox ID="txtModelo" ReadOnly="true" runat="server" CssClass="form-control" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtFechaFin">Fecha de Fin:</label>
-                                    <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" />
+                                    <label for="txtFechaInicio">Fecha de inicio:</label>
+                                    <asp:TextBox ID="txtFechaInicio" ReadOnly="true" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtFechaFin">Fecha de fin:</label>
+                                    <asp:TextBox ID="txtFechaFin" ReadOnly="true" runat="server" CssClass="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <label for="txtTipoMantenimiento">Tipo de Mantenimiento:</label>
-                                    <asp:TextBox ID="txtTipoMantenimiento" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtTipoMantenimiento" ReadOnly="true" runat="server" CssClass="form-control" />
                                 </div>
                                 <div class="form-group">
                                 <label for="txtResponsable">Responsable:</label>
-                                <asp:TextBox ID="txtResponsable" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtResponsable" ReadOnly="true" runat="server" CssClass="form-control" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 
                                 <div class="form-group">
                                     <label for="txtEstado">Estado:</label>
-                                    <asp:TextBox ID="txtEstado" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtEstado" ReadOnly="true" runat="server" CssClass="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <label for="txtCodigo">Codigo:</label>
-                                    <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtCodigo" ReadOnly="true" runat="server" CssClass="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <label for="txtObservaciones">Observaciones:</label>
-                                    <asp:TextBox ID="txtObservaciones" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtObservaciones" ReadOnly="true" runat="server" CssClass="form-control" />
                                 </div>
                             </div>
                         </div>
