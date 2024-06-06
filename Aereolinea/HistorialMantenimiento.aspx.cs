@@ -90,6 +90,7 @@ namespace Aereolinea
                     LVHistorialMantenimiento.DataSource = dtMantenimientos;
                     LVHistorialMantenimiento.DataBind();
 
+
                     reader.Close();
                 }
                 catch (Exception ex)
@@ -110,15 +111,27 @@ namespace Aereolinea
             {
                 ListarMantenimientos(); // Mostrar todos los mantenimientos si no se selecciona ninguna aeronave
             }
+
+            if (LVHistorialMantenimiento.Items.Count == 0)
+            {
+                lblNoHistorial.Visible = true; // Mostrar el mensaje
+            }
+            else
+            {
+                lblNoHistorial.Visible = false; // Ocultar el mensaje si hay datos
+            }
         }
         protected void Ver_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            int IdAeronave = Convert.ToInt32(btn.CommandArgument);
-            DataTable dtMantenimiento = ObtenerMantenimientoPorIdAeronave(IdAeronave);
+            int IdMantenimiento = Convert.ToInt32(btn.CommandArgument);
+            DataTable dtMantenimiento = ObtenerMantenimientoPorId(IdMantenimiento);
+
+            System.Diagnostics.Debug.WriteLine("ID del Mantenimiento: " + IdMantenimiento);
 
             if (dtMantenimiento.Rows.Count > 0)
             {
+                txtModelo.Text = dtMantenimiento.Rows[0]["Aeronave"].ToString();
                 txtFechaInicio.Text = dtMantenimiento.Rows[0]["FechaInicio"].ToString();
                 txtFechaFin.Text = dtMantenimiento.Rows[0]["FechaFin"].ToString();
                 txtTipoMantenimiento.Text = dtMantenimiento.Rows[0]["TipoManetimiento"].ToString();
@@ -127,14 +140,43 @@ namespace Aereolinea
                 txtCodigo.Text = dtMantenimiento.Rows[0]["Codigo"].ToString();
                 txtObservaciones.Text = dtMantenimiento.Rows[0]["Observaciones"].ToString();
 
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "HistorialMantenimiento", "abrirModal();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "AbrirModalScript", "abrirModal();", true);
+
             }
             else
             {
                 // Manejar el caso en el que no se encuentren datos para el ID del mantenimiento proporcionado
             }
         }
+        private DataTable ObtenerMantenimientoPorId(int IdMantenimiento)
+        {
+            DataTable dtMantenimiento = new DataTable();
 
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_GetMantenimientoID";
+                cmd.Parameters.AddWithValue("@IdMantenimiento", IdMantenimiento);
+                cmd.Connection = conn;
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    dtMantenimiento.Load(reader);
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Manejar errores de conexión o consulta
+                }
+            }
+
+            return dtMantenimiento;
+        }
         private DataTable ObtenerMantenimientoPorIdAeronave(int IdAeronave)
         {
             DataTable dtMantenimiento = new DataTable();
