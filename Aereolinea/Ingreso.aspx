@@ -6,13 +6,14 @@
     <style>
         /* Estilos generales */
         body {
-
+            margin: 0;
+            padding: 0; 
             overflow: hidden; /* Evitar el desplazamiento */
             display: flex;
             justify-content: center; /* Centrar horizontalmente */
             align-items: center; /* Centrar verticalmente */
             height: 100vh;
-            font-size: 18px; /* Tama�o de fuente m�s grande */
+            font-size: 18px; 
             background: linear-gradient(270deg, #bc8be5, #5a3876, #7f7fd5, #86a8e7, #91eae4);
             background-size: 1000% 1000%;
             animation: gradientAnimation 20s ease infinite;
@@ -59,11 +60,11 @@
         }
 
         .panel {
-            max-width: 500px; /* Ancho m�ximo del panel aumentado */
+            max-width: 500px; 
             background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
             padding: 30px; /* Mayor espacio interno */
-            border-radius: 15px; /* Bordes redondeados m�s grandes */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra m�s pronunciada */
+            border-radius: 15px; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
             margin-bottom: 50px; /* Mayor espacio abajo */
         }
 
@@ -102,54 +103,48 @@
             margin-right: 10px; /* Espacio a la derecha del icono */
         }
     </style>
-
-    <div class="container">
-        <div class="row">
+     <div class="container">
+    <div class="row">
             <div class="col-md-2">
-                <img src="Images/4071704.png" alt="Icono de avi�n" style="vertical-align:central; height: 84px; width: 103px;" />
+                <img src="Images/4071704.png" alt="Icono de avión" style="vertical-align:central; height: 84px; width: 103px;" />
             </div>
           <div class="col-md-10">
                <h1 class="titulo">AVIACOL - EMPRESA DE VUELOS</h1>
             </div>
         </div>
-
         <br />
         <div class="row">
 
             <div class="col-md-5" style="padding-top: 100px;">
 
                 <div class="text-switcher" id="textSwitcher">
-                    <span id="switchText">Nuestra Misi�n: Ofrecer el mejor servicio de transporte a�reo.</span>
+                    <span id="switchText">Nuestra Misión: Ofrecer el mejor servicio de transporte aéreo.</span>
                 </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-6">
-                <div class="panel">
-                    <h2 class="titulo ridge"><i class="fa fa-sign-in-alt"></i>Inicio de sesi�n</h2>
-                    <div class="panel-body">
-                        <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Usuario" />
-                        <asp:TextBox ID="txtContra" runat="server" CssClass="form-control" TextMode="Password" placeholder="Contrase�a" />
-                    </div>
-                    <div class="panel-footer text-center">
-                        <asp:Button ID="btnIniciar" runat="server" OnClick="Iniciar_Click" CssClass="btn btn-info" Text="Iniciar sesi�n" />
-                    </div>
-                </div>
+            <div class="panel">
+            <h2 class="titulo ridge"><i class="fa fa-sign-in-alt"></i> Inicio de sesión</h2>
+            <div class="panel-body">
+                <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Usuario" />
+                <asp:TextBox ID="txtContra" runat="server" CssClass="form-control" TextMode="Password" placeholder="Contraseña" />
             </div>
-
-        <div class="panel-footer text-center">
-            <asp:Button ID="btnIniciar" runat="server" OnClick="Iniciar_Click" CssClass="btn btn-info" Text="Iniciar sesi�n" />
-            <a href="Registro.aspx" class="registro-link">�No tiene cuenta? Reg�strese aqu�</a>
+            <div class="panel-footer text-center">
+                <asp:Button ID="btnIniciar" runat="server" OnClick="Iniciar_Click" CssClass="btn btn-info" Text="Iniciar sesión" />
+                            <a href="Registro.aspx" class="registro-link">¿No tiene cuenta? Registrese aqui</a>
+            </div>
+        </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // JavaScript para alternar entre textos de misi�n y visi�n
         document.addEventListener('DOMContentLoaded', (event) => {
             const switchText = document.getElementById('switchText');
 
             const texts = [
-                "Nuestra Misi�n: Ofrecer el mejor servicio de transporte a�reo.",
-                "Nuestra Visi�n: Ser la aerol�nea l�der en innovaci�n y calidad."
+                "Nuestra Misión: Ofrecer el mejor servicio de transporte aereo.",
+                "Nuestra Visión: Ser la aerolínea lider en innovación y calidad."
             ];
 
             let index = 0;
