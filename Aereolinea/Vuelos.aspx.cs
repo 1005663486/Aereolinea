@@ -55,7 +55,7 @@ namespace Aereolinea
             Button btn = (Button)sender;
             int idVuelo = Convert.ToInt32(btn.CommandArgument);
             DataTable dtVuelo = ObtenerVueloPorId(idVuelo);
-            btnAgregarVuelo.Visible = false;
+            btnGuardarVuelo.Visible = false;
             btnEditar.Visible = true;
             // Verificamos si se encontraron datos en el DataTable
             if (dtVuelo.Rows.Count > 0)
