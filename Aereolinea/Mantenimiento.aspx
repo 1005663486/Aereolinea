@@ -102,6 +102,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="ddlTipoMantenimiento">Tipo de Mantenimiento:</label>
+                            <asp:DropDownList ID="ddlTipoMantenimiento" runat="server" CssClass="form-control">
+                            </asp:DropDownList>
+                        </div>
                     </div>
                     <div class="panel-footer text-center">
                         <asp:Button ID="btnGuardar" runat="server" OnClick="Guardar_Click" CssClass="btn btn-info" Text="Guardar" />
