@@ -7,20 +7,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> Aereolinea</title>
-            <script>
-                function cerrarSesion() {
-                    PageMethods.CerrarSesion_Click(onSuccess, onError);
-                }
+    <script>
+        function cerrarSesion() {
+            PageMethods.CerrarSesion_Click(onSuccess, onError);
+        }
 
-                function onSuccess(response) {
-                    // Redirigir a la página de inicio de sesión u otra página apropiada
-                    window.location.href = 'Ingreso.aspx';
-                }
+        function onSuccess(response) {
+            // Redirigir a la página de inicio de sesión u otra página apropiada
+            window.location.href = 'Ingreso.aspx';
+        }
 
-                function onError(error) {
-                    console.error('Error al cerrar sesión:', error.get_message());
-                }
-            </script>
+        function onError(error) {
+            console.error('Error al cerrar sesión:', error.get_message());
+        }
+    </script>
 
 
 
@@ -51,7 +51,7 @@
             font-family: Arial, sans-serif;
         }
 
-      header {
+        header {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -66,7 +66,7 @@
             display: flex;
         }
 
-       
+
 
         .content {
             flex: 1;
@@ -84,32 +84,34 @@
             background-color: #322065;
             color: #f5f5f5;
         }
-<<<<<<< Updated upstream
+
         .logout-image {
-            width:30px;
-            height:30px;
+            width: 30px;
+            height: 30px;
         }
-        .logout{
+
+        .logout {
             background-color: #337ab8;
             width: 40px;
             height: 40px;
-=======
-          .logo {
+        }
+
+        .logo {
             display: flex;
             align-items: center;
         }
 
-        .logo img {
-            vertical-align: middle;
-            margin-right: 10px;
-            height: 30px;
-            width: 30px;
-        }
+            .logo img {
+                vertical-align: middle;
+                margin-right: 10px;
+                height: 30px;
+                width: 30px;
+            }
 
-        .logo span {
-            font-size: 24px;
-            font-weight: bold;
-        }
+            .logo span {
+                font-size: 24px;
+                font-weight: bold;
+            }
 
         nav {
             display: flex;
@@ -117,39 +119,40 @@
             justify-content: center;
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
 
-        nav ul li {
-            margin: 0 15px;
-        }
+                nav ul li {
+                    margin: 0 15px;
+                }
 
-        nav ul li a {
-            color: #f5f5f5;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 5px 10px;
-        }
+                    nav ul li a {
+                        color: #f5f5f5;
+                        text-decoration: none;
+                        font-size: 16px;
+                        padding: 5px 10px;
+                    }
 
-        nav ul li a:hover {
-            background-color: #B799F8;
-            border-radius: 5px;
-        } .profile {
+                        nav ul li a:hover {
+                            background-color: #B799F8;
+                            border-radius: 5px;
+                        }
+
+        .profile {
             display: flex;
             align-items: center;
         }
 
-        .profile a {
-            color: #f5f5f5;
-            text-decoration: none;
-            font-size: 16px;
-            margin-left: 10px;
->>>>>>> Stashed changes
-        }
+            .profile a {
+                color: #f5f5f5;
+                text-decoration: none;
+                font-size: 16px;
+                margin-left: 10px;
+            }
     </style>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
@@ -178,34 +181,12 @@
             </Scripts>
         </asp:ScriptManager>
 
-    <header class="container-fluid">
+        <header class="container-fluid">
             <div class="row">
-<<<<<<< Updated upstream
-                <div class="col-md-4">
-                    <button type="button" class="menu-toggle btn btn-primary" id="toggleSidebar">
-                        <i class="fas fa-bars  fa-2x"></i>
-                    </button>
-
-                </div>
                 <div class="col-md-4">
 
                     <img src="Images/4071704.png" alt="Icono de avión" style="vertical-align: middle; margin-left: 20px; height: 30px; width: 30px;" />
-                    <span style="font-size: 24px; font-weight: bold;"> AVIACOL</span>
-                </div>
-                <div class="col-md-3 text-right">
-                    
-                    <a href="perfil.aspx" class="btn btn-primary">
-                        <i class="fas fa-user-circle fa-2x"></i>
-                    </a> <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label>
-                    <a href="logout.aspx" class="btn btn-primary">
-                        <i class="fas fa-sign-out-alt fa-2x logout-image"></i>
-                    </a>
-=======
-                <!-- Nombre y logo -->
-                <div class="col-md-4 logo">
-                    <img src="Images/4071704.png" alt="Icono de avión" />
-                    <span>AVIACOL</span>
->>>>>>> Stashed changes
+                    <span style="font-size: 24px; font-weight: bold;">AVIACOL</span>
                 </div>
 
                 <!-- Menú horizontal -->
@@ -217,25 +198,22 @@
                         <li><a runat="server" href="~/Tripulacion">Tripulación</a></li>
                     </ul>
                 </nav>
+                <div class="col-md-2 text-right">
 
-                <!-- Perfil -->
-                <div class="col-md-2 profile text-right">
-                    <a href="perfil.html">
-                        <i class="fas fa-user-circle fa-2x"></i> Mi Perfil
+                    <a href="perfil.aspx" class="btn btn-primary">
+                        <i class="fas fa-user-circle fa-2x"></i>
+                    </a>
+                    <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label>
+                    <a href="logout.aspx" class="btn btn-primary">
+                        <i class="fas fa-sign-out-alt fa-2x logout-image"></i>
                     </a>
                 </div>
+
             </div>
         </header>
 
         <div class="container">
-  <%--          <div class="sidebar">
-                <a runat="server" href="~/Vuelos">Vuelos</a>
-                <a runat="server" href="~/Aeronaves">Aeronaves</a>
-                <a runat="server" href="~/Mantenimiento">Mantenimiento</a>
-                <a runat="server" href="~/Tripulacion">Tripulacion</a>
-            </div>--%>
 
-            <!-- Contenido principal de la página -->
             <div class="content">
                 <!-- Aquí se insertará el contenido específico de cada página -->
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
