@@ -72,7 +72,7 @@
         select {
             width: 100%;
             margin-bottom: 20px; /* Mayor espacio abajo */
-            font-size: 18px; /* Tama�o de fuente m�s grande */
+            font-size: 18px; 
         }
 
         .btn-separado {
@@ -87,21 +87,23 @@
             text-align: center;
         }
 
-        /* Estilos para los textos de misi�n y visi�n */
         .text-switcher {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #fff;
             text-align: center;
             margin-bottom: 50px; /* Mayor espacio abajo */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-size: 24px; /* Tama�o de fuente m�s grande */
+            font-size: 24px; 
             flex: 1; /* Ocupa el espacio restante */
-            max-width: 500px; /* Ancho m�ximo del contenedor de textos */
+            max-width: 500px; 
         }
         /* Estilos para los iconos */
         .fa {
             margin-right: 10px; /* Espacio a la derecha del icono */
         }
+           .panel{
+        margin: 5px;
+    }
     </style>
      <div class="container">
     <div class="row">
