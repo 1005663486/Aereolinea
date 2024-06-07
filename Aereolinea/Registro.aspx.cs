@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace Aereolinea
 {
-    public partial class _Mantenimiento : Page
+    public partial class _Registro : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -151,8 +151,8 @@ namespace Aereolinea
                         // Verificar si se realizaron cambios en la base de datos
                         if (rowsAffected > 0)
                         {
-                            // La actualizaciÃ³n fue exitosa
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('Â¡Ã‰xito!', 'La actualizaciÃ³n fue exitosa.', 'success');", true);
+                            // La actualización fue exitosa
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('¡Éxito!', 'La actualización fue exitosa.', 'success');", true);
                             CargarAeronavesActivas();
                         }
                         else
@@ -163,7 +163,7 @@ namespace Aereolinea
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine("Error: " + ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }

@@ -46,8 +46,7 @@ namespace Aereolinea
                 }
                 catch (Exception ex)
                 {
-                    // Manejar errores de conexión o consulta
-                    // Por ejemplo, puedes mostrar un mensaje de error o registrar el error en un archivo de registro
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -107,8 +106,7 @@ namespace Aereolinea
                 }
                 catch (Exception ex)
                 {
-                    // Manejar errores de conexión o consulta
-                    // Por ejemplo, puedes mostrar un mensaje de error o registrar el error en un archivo de registro
+                    Console.WriteLine(ex.Message);
                 }
             }
 
@@ -169,8 +167,7 @@ namespace Aereolinea
                     }
                     catch (Exception ex)
                     {
-                        // Manejar errores de conexión o consulta
-                        // Por ejemplo, puedes mostrar un mensaje de error o registrar el error en un archivo de registro
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }

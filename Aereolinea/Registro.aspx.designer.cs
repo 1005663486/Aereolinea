@@ -1,23 +1,25 @@
 //------------------------------------------------------------------------------
-// <generado automï¿½ticamente>
-//     Este cï¿½digo fue generado por una herramienta.
+// <generado automáticamente>
+//     Este código fue generado por una herramienta.
 //
-//     Los cambios en este archivo podrï¿½an causar un comportamiento incorrecto y se perderï¿½n si
-//     se vuelve a generar el cï¿½digo. 
-// </generado automï¿½ticamente>
+//     Los cambios en este archivo podrían causar un comportamiento incorrecto y se perderán si
+//     se vuelve a generar el código. 
+// </generado automáticamente>
 //------------------------------------------------------------------------------
 
 namespace Aereolinea
 {
-    public partial class _Mantenimiento
+
+
+    public partial class _Registro
     {
 
         /// <summary>
         /// Control btnVerHistorial.
         /// </summary>
         /// <remarks>
-        /// Campo generado automï¿½ticamente.
-        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnVerHistorial;
 
@@ -25,9 +27,8 @@ namespace Aereolinea
         /// Control txtFechaInicio.
         /// </summary>
         /// <remarks>
-        /// Campo generado automï¿½ticamente.
-        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
-
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
 
@@ -35,8 +36,8 @@ namespace Aereolinea
         /// Control txtFechaFin.
         /// </summary>
         /// <remarks>
-        /// Campo generado automï¿½ticamente.
-        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
 
@@ -44,8 +45,8 @@ namespace Aereolinea
         /// Control ddlTipoMantenimiento.
         /// </summary>
         /// <remarks>
-        /// Campo generado automï¿½ticamente.
-        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoMantenimiento;
 
@@ -53,8 +54,8 @@ namespace Aereolinea
         /// Control ddlResponsable.
         /// </summary>
         /// <remarks>
-        /// Campo generado automï¿½ticamente.
-        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlResponsable;
 
@@ -62,8 +63,8 @@ namespace Aereolinea
         /// Control ddlAeronavesActivas.
         /// </summary>
         /// <remarks>
-        /// Campo generado automï¿½ticamente.
-        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAeronavesActivas;
 
@@ -71,8 +72,8 @@ namespace Aereolinea
         /// Control ddlEstado.
         /// </summary>
         /// <remarks>
-        /// Campo generado automï¿½ticamente.
-        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
@@ -80,8 +81,8 @@ namespace Aereolinea
         /// Control txtObservaciones.
         /// </summary>
         /// <remarks>
-        /// Campo generado automï¿½ticamente.
-        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
 
@@ -89,8 +90,8 @@ namespace Aereolinea
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>
-        /// Campo generado automï¿½ticamente.
-        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
     }

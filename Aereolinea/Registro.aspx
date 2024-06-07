@@ -1,4 +1,4 @@
-<%@ Page Title="Mantenimiento -" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Mantenimiento.aspx.cs" Inherits="Aereolinea._Mantenimiento" EnableEventValidation="false" %>
+<%@ Page Title="Registro -" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registro.aspx.cs" Inherits="Aereolinea._Registro" EnableEventValidation="false" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -41,7 +41,6 @@
     .titulo-mantenimiento {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: black;
-        text-align: center;
         margin-top: 10px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
@@ -102,15 +101,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="ddlTipoMantenimiento">Tipo de Mantenimiento:</label>
-                            <asp:DropDownList ID="ddlTipoMantenimiento" runat="server" CssClass="form-control">
-                            </asp:DropDownList>
-                        </div>
                     </div>
                     <div class="panel-footer text-center">
                         <asp:Button ID="btnGuardar" runat="server" OnClick="Guardar_Click" CssClass="btn btn-info" Text="Guardar" />
-                    
                     </div>
                 </div>
             </div>
