@@ -40,7 +40,7 @@
 
     .titulo-mantenimiento {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: black;
+        color: #fff;
         text-align: center;
         margin-top: 10px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -56,11 +56,9 @@
     <div class="col-md-12 col-lg-12 col-xs-12 col-12 text-center">
         <div class="row justify-content-center align-items-center" style="height: 100vh;">
             <div class="col-md-12 col-lg-12 col-xs-12 col-12">
-                <asp:Button ID="btnVerHistorial" runat="server" OnClick="VerHistorial_Click" CssClass="btn btn-info" Text="Ver historial" />
+                <asp:Button ID="btnVerHistorial" runat="server" OnClick="VerHistorial_Click" CssClass="btn btn-primary btn-lgo" Text="Ver historial" />
+                <h1 class="titulo-mantenimiento ridge">Agregar mantenimiento</h1>
                 <div id="panelMantenimiento" class="panel panel-default">
-
-                    <h1 class="titulo-mantenimiento ridge">Agregar mantenimiento</h1>
-
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xs-12 col-12">
