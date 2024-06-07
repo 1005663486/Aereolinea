@@ -15,6 +15,15 @@ namespace Aereolinea
     {
 
         /// <summary>
+        /// Control btnAgregarVuelo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarVuelo;
+
+        /// <summary>
         /// Control LVVuelos.
         /// </summary>
         /// <remarks>
@@ -69,13 +78,13 @@ namespace Aereolinea
         protected global::System.Web.UI.WebControls.TextBox txtDestino;
 
         /// <summary>
-        /// Control txtEstado.
+        /// Control ddlEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstado;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
         /// <summary>
         /// Control txtPasajeros.
@@ -130,6 +139,15 @@ namespace Aereolinea
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIdVuelo;
+
+        /// <summary>
+        /// Control btnGuardarVuelo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarVuelo;
 
         /// <summary>
         /// Control btnEditar.
