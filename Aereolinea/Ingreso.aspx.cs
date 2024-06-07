@@ -45,17 +45,30 @@ namespace Aereolinea
                 SqlCommand cmd = new SqlCommand("sp_login", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Usuario", usuario);
-                cmd.Parameters.AddWithValue("@Contraseña", contrasena); // Pasar la contraseña como parámetro
+                cmd.Parameters.AddWithValue("@Contraseña", contrasena);
+
+                SqlParameter nombreParam = new SqlParameter("@Nombre", SqlDbType.NVarChar, 50)
+                {
+                    Direction = ParameterDirection.Output
+                };
+                cmd.Parameters.Add(nombreParam);
+
+                SqlParameter apellidoParam = new SqlParameter("@Apellido", SqlDbType.NVarChar, 50)
+                {
+                    Direction = ParameterDirection.Output
+                };
+                cmd.Parameters.Add(apellidoParam);
 
                 try
                 {
                     connection.Open();
-                    int count = (int)cmd.ExecuteScalar(); // Obtener el resultado del procedimiento almacenado
+                    int count = (int)cmd.ExecuteScalar();
 
-                    // Si el resultado es mayor que cero, significa que se encontró un usuario con la contraseña dada
                     if (count > 0)
                     {
                         usuarioValido = true;
+                        Session["NombreCompleto"] = nombreParam.Value.ToString() + " " + apellidoParam.Value.ToString();
+
                     }
                 }
                 catch (Exception ex)
@@ -66,6 +79,7 @@ namespace Aereolinea
 
             return usuarioValido;
         }
+
 
 
         private void MostrarMensaje(string mensaje)

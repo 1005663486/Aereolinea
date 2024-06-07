@@ -7,6 +7,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> Aereolinea</title>
+            <script>
+                function cerrarSesion() {
+                    PageMethods.CerrarSesion_Click(onSuccess, onError);
+                }
+
+                function onSuccess(response) {
+                    // Redirigir a la página de inicio de sesión u otra página apropiada
+                    window.location.href = 'Ingreso.aspx';
+                }
+
+                function onError(error) {
+                    console.error('Error al cerrar sesión:', error.get_message());
+                }
+            </script>
+
+
 
     <!-- Estilos CSS -->
     <style>
@@ -88,6 +104,15 @@
             background-color: #322065;
             color: #f5f5f5;
         }
+        .logout-image {
+            width:30px;
+            height:30px;
+        }
+        .logout{
+            background-color: #337ab8;
+            width: 40px;
+            height: 40px;
+        }
     </style>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
@@ -131,9 +156,13 @@
                     <span style="font-size: 24px; font-weight: bold;"> AVIACOL</span>
                 </div>
                 <div class="col-md-3 text-right">
-                    <a href="perfil.html" class="btn btn-primary">
+                    
+                    <a href="perfil.aspx" class="btn btn-primary">
                         <i class="fas fa-user-circle fa-2x"></i>
-                    </a> Mi Perfil
+                    </a> <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label>
+                    <a href="logout.aspx" class="btn btn-primary">
+                        <i class="fas fa-sign-out-alt fa-2x logout-image"></i>
+                    </a>
                 </div>
 
             </div>
