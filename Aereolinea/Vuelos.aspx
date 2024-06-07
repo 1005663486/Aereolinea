@@ -60,7 +60,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente elegante */
             color: #fff; /* Color del texto */
             text-align: center;
-            margin-top: 50px; /* Ajusta este valor según sea necesario */
+            margin-top: 10px; /* Ajusta este valor según sea necesario */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para destacarlo */
         }
 
@@ -70,25 +70,17 @@
     </style>
     <div class="containerImage">
         <div>
-            <div class="col-md-12">
+            <div class="col-md-12" style="margin-bottom:40px">
 
-                <h1 class="titulo-vuelos ridge">Vuelos programados</h1>
                 <br />
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <asp:Button ID="btnAgregarVuelo" runat="server" Text='Agregar Vuelo' OnClick="btnAgregarVuelo_Click" CssClass="btn btn-sucess btn-separado" />
                     </div>
-
                 </div>
                 <br />
-                <!-- Contenido principal -->
-                <%--  <div class="jumbotron">
-                    <h1>Bienvenido a nuestra página de vuelos</h1>
-                    <p class="lead">Encuentra los mejores vuelos para tu próximo viaje</p>
-                    <p><a href="http://www.tuwebdevuelos.com" class="btn btn-primary btn-lg">Explora ahora &raquo;</a></p>
-                </div>--%>
-                <asp:ListView ID="LVVuelos" runat="server" ItemPlaceholderID="itemPlaceholder">
-
+                <h1 class="titulo-vuelos ridge">Vuelos programados</h1>
+                    <asp:ListView ID="LVVuelos" runat="server" ItemPlaceholderID="itemPlaceholder">
                         <ItemTemplate>
                             <div class="col-md-4">
                                 <div class="panel panel-default">
@@ -101,19 +93,16 @@
                                         <p><strong>Fecha de Salida:</strong> <%# Eval("Fecha") %></p>
                                         <p><strong>Fecha de Llegada:</strong> <%# Eval("FechaLlegada") %></p>
                                         <div class="btn-group" role="group" aria-label="Opciones">
-                                            <!-- Tu código HTML para mostrar la información del vuelo -->
 
                                             <asp:Button ID="btnVer" runat="server" Text='Ver' CommandArgument='<%# Eval("NumeroVuelo") %>' OnClick="Ver_Click" CssClass="btn btn-info btn-separado" />
                                             <asp:Button ID="btnEliminar" runat="server" Text='Eliminar' CommandArgument='<%# Eval("NumeroVuelo") %>' OnClick="Eliminar_Click" CssClass="btn btn-danger" />
-
-
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                         </ItemTemplate>
                     </asp:ListView>
+                
                 </div>
         </div>
     </div>

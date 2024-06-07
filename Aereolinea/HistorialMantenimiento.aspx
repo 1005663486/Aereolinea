@@ -59,7 +59,7 @@
 
         .titulo-historial {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: black;
+            color: aliceblue;
             text-align: center;
             margin-top: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -83,7 +83,7 @@
     <div class="containerImage Datos text-center">
              <asp:Button ID="btnAgregar" runat="server" OnClick="Agregar_Click" CssClass="btn btn-info" Text="Agregar mantenimiento" />
             <div class="col-md-12 col-lg-12 col-12 col-xs-12">
-                <h1 class="titulo-historial ridge">Historial de Mantenimiento</h1>
+                <h1 class="titulo-historial ridge">Historial de mantenimiento</h1>
                <div class="align-items-center text-center" style="font-size:18px; margin:20px">
                    <strong>Aeronave:</strong>
                     <asp:DropDownList ID="ddlAeronavesActivas" runat="server"></asp:DropDownList>
