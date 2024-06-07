@@ -19,7 +19,6 @@ namespace Aereolinea
         /// Control btnVerHistorial.
         /// </summary>
         /// <remarks>
-
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 
@@ -41,7 +40,6 @@ namespace Aereolinea
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
 
@@ -51,7 +49,6 @@ namespace Aereolinea
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoMantenimiento;
 
@@ -61,7 +58,6 @@ namespace Aereolinea
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlResponsable;
 
@@ -69,7 +65,6 @@ namespace Aereolinea
         /// Control ddlAeronavesActivas.
         /// </summary>
         /// <remarks>
-
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 

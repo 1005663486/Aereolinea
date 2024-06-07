@@ -81,12 +81,6 @@
 
                 </div>
                 <br />
-                <!-- Contenido principal -->
-                <%--  <div class="jumbotron">
-                    <h1>Bienvenido a nuestra página de vuelos</h1>
-                    <p class="lead">Encuentra los mejores vuelos para tu próximo viaje</p>
-                    <p><a href="http://www.tuwebdevuelos.com" class="btn btn-primary btn-lg">Explora ahora &raquo;</a></p>
-                </div>--%>
                 <asp:ListView ID="LVVuelos" runat="server" ItemPlaceholderID="itemPlaceholder">
 
                         <ItemTemplate>
@@ -152,6 +146,10 @@
                                     <label for="ddlDestino">Destino:</label>
                                     <asp:DropDownList ID="ddlDestino" runat="server" CssClass="form-control"></asp:DropDownList>
                                 </div>
+                                <div class="form-group">
+                                    <label for="ddlDestino">Destino:</label>
+                                    <asp:DropDownList ID="ddlDestino" runat="server" CssClass="form-control"></asp:DropDownList>
+                                </div>
                                       <div class="form-group">
                             <label for="Estado">Estado:</label>
                             <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-control">
@@ -159,7 +157,6 @@
                                 <asp:ListItem Text="Inactivo" Value="0"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
-
 
                             </div>
                             <div class="col-md-6">
