@@ -79,8 +79,13 @@
                     </div>
                 </div>
                 <br />
+<<<<<<< HEAD
                 <h1 class="titulo-vuelos ridge">Vuelos programados</h1>
                     <asp:ListView ID="LVVuelos" runat="server" ItemPlaceholderID="itemPlaceholder">
+=======
+                <asp:ListView ID="LVVuelos" runat="server" ItemPlaceholderID="itemPlaceholder">
+
+>>>>>>> 869d425e22286d3e62ce72bc049200ab689920d8
                         <ItemTemplate>
                             <div class="col-md-4">
                                 <div class="panel panel-default">
@@ -141,6 +146,10 @@
                                     <label for="ddlDestino">Destino:</label>
                                     <asp:DropDownList ID="ddlDestino" runat="server" CssClass="form-control"></asp:DropDownList>
                                 </div>
+                                <div class="form-group">
+                                    <label for="ddlDestino">Destino:</label>
+                                    <asp:DropDownList ID="ddlDestino" runat="server" CssClass="form-control"></asp:DropDownList>
+                                </div>
                                       <div class="form-group">
                             <label for="Estado">Estado:</label>
                             <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-control">
@@ -148,7 +157,6 @@
                                 <asp:ListItem Text="Inactivo" Value="0"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
-
 
                             </div>
                             <div class="col-md-6">
