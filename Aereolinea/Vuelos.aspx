@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
- 
+
     <script>
         $(document).ready(function () {
             $('#modalDetallesVuelo').on('show.bs.modal', function () {
@@ -20,6 +20,7 @@
                 $('body').css('background-color', 'transparent');
             });
         });
+
     </script>
     <style>
         .content {
@@ -29,18 +30,18 @@
         }
 
         body {
-            background-image: url('Images/FondoAvion.png');
+            background-image: url('Images/AVION1.jpg');
             background-size: cover;
-            background-position:center;
+            background-position: center;
             height: 100vh;
             margin: 0;
             padding: 0;
-            background-repeat: no-repeat; /* Evita que la imagen se repita */        
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
         }
 
-        body::-webkit-scrollbar {
-            display: none; /* Oculta la barra de desplazamiento en Chrome, Safari y otros navegadores basados en WebKit */
-        }
+            body::-webkit-scrollbar {
+                display: none; /* Oculta la barra de desplazamiento en Chrome, Safari y otros navegadores basados en WebKit */
+            }
 
         .btn-separado {
             margin-right: 10px; /* Ajusta este valor según el espacio deseado entre los botones */
@@ -54,22 +55,32 @@
             overflow: hidden;
         }
 
-       /* Estilo para el título */
-    .titulo-vuelos {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente elegante */
-        color: #fff; /* Color del texto */
-        text-align: center;
-        margin-top: 50px; /* Ajusta este valor según sea necesario */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para destacarlo */
-    }
-    .ridge {border-style: ridge;}
+        /* Estilo para el título */
+        .titulo-vuelos {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente elegante */
+            color: #fff; /* Color del texto */
+            text-align: center;
+            margin-top: 50px; /* Ajusta este valor según sea necesario */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para destacarlo */
+        }
+
+        .ridge {
+            border-style: ridge;
+        }
     </style>
     <div class="containerImage">
         <div>
             <div class="col-md-12">
-              <h1 class="titulo-vuelos ridge">Vuelos programados</h1>
-                <br />
 
+                <h1 class="titulo-vuelos ridge">Vuelos programados</h1>
+                <br />
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <asp:Button ID="btnAgregarVuelo" runat="server" Text='Agregar Vuelo' OnClick="btnAgregarVuelo_Click" CssClass="btn btn-sucess btn-separado" />
+                    </div>
+
+                </div>
+                <br />
                 <!-- Contenido principal -->
                 <%--  <div class="jumbotron">
                     <h1>Bienvenido a nuestra página de vuelos</h1>
@@ -78,32 +89,32 @@
                 </div>--%>
                 <asp:ListView ID="LVVuelos" runat="server" ItemPlaceholderID="itemPlaceholder">
 
-                    <ItemTemplate>
-                        <div class="col-md-4">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Vuelo <%# Eval("NumeroVuelo") %></h3>
-                                </div>
-                                <div class="panel-body">
-                                    <p><strong>Origen:</strong> <%# Eval("Origen") %></p>
-                                    <p><strong>Destino:</strong> <%# Eval("Destino") %></p>
-                                    <p><strong>Fecha de Salida:</strong> <%# Eval("Fecha") %></p>
-                                    <p><strong>Fecha de Llegada:</strong> <%# Eval("FechaLlegada") %></p>
-                                    <div class="btn-group" role="group" aria-label="Opciones">
-                                        <!-- Tu código HTML para mostrar la información del vuelo -->
+                        <ItemTemplate>
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Vuelo <%# Eval("NumeroVuelo") %></h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><strong>Origen:</strong> <%# Eval("Origen") %></p>
+                                        <p><strong>Destino:</strong> <%# Eval("Destino") %></p>
+                                        <p><strong>Fecha de Salida:</strong> <%# Eval("Fecha") %></p>
+                                        <p><strong>Fecha de Llegada:</strong> <%# Eval("FechaLlegada") %></p>
+                                        <div class="btn-group" role="group" aria-label="Opciones">
+                                            <!-- Tu código HTML para mostrar la información del vuelo -->
 
-                                        <asp:Button ID="btnVer" runat="server" Text='Ver' CommandArgument='<%# Eval("NumeroVuelo") %>' OnClick="Ver_Click" CssClass="btn btn-info btn-separado" />
-                                        <asp:Button ID="btnEliminar" runat="server" Text='Eliminar' CommandArgument='<%# Eval("NumeroVuelo") %>' OnClick="Eliminar_Click" CssClass="btn btn-danger" />
+                                            <asp:Button ID="btnVer" runat="server" Text='Ver' CommandArgument='<%# Eval("NumeroVuelo") %>' OnClick="Ver_Click" CssClass="btn btn-info btn-separado" />
+                                            <asp:Button ID="btnEliminar" runat="server" Text='Eliminar' CommandArgument='<%# Eval("NumeroVuelo") %>' OnClick="Eliminar_Click" CssClass="btn btn-danger" />
 
+
+                                        </div>
 
                                     </div>
-
                                 </div>
                             </div>
-                        </div>
-                    </ItemTemplate>
-                </asp:ListView>
-            </div>
+                        </ItemTemplate>
+                    </asp:ListView>
+                </div>
         </div>
     </div>
     <!-- Modal -->
@@ -125,12 +136,12 @@
                                     <asp:TextBox ID="txtAeronave" runat="server" CssClass="form-control" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtFechaSalida">Fecha de Salida:</label>
-                                    <asp:TextBox ID="txtFechaSalida" runat="server" CssClass="form-control" />
+                                    <label for="FechaSalida">Fecha de Salida:</label>
+                                    <asp:TextBox ID="txtFechaSalida" runat="server" CssClass="form-control"  TextMode="Date" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtFechaLlegada">Fecha de Llegada:</label>
-                                    <asp:TextBox ID="txtFechaLlegada" runat="server" CssClass="form-control" />
+                                    <label for="FechaLlegada">Fecha de Llegada:</label>
+                                    <asp:TextBox ID="txtFechaLlegada" runat="server" CssClass="form-control"  TextMode="Date" />
                                 </div>
 
                                 <div class="form-group">
@@ -141,10 +152,13 @@
                                     <label for="ddlDestino">Destino:</label>
                                     <asp:DropDownList ID="ddlDestino" runat="server" CssClass="form-control"></asp:DropDownList>
                                 </div>
-                                <div class="form-group">
-                                    <label for="txtEstado">Estado:</label>
-                                    <asp:TextBox ID="txtEstado" runat="server" CssClass="form-control" />
-                                </div>
+                                      <div class="form-group">
+                            <label for="Estado">Estado:</label>
+                            <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-control">
+                                <asp:ListItem Text="Activo" Value="1"></asp:ListItem>
+                                <asp:ListItem Text="Inactivo" Value="0"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
 
                             </div>
                             <div class="col-md-6">
@@ -185,7 +199,7 @@
                                     </asp:DropDownList>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtTripulante">Tripulante:</label>
+                                    <label for="txtTripulante">Cantidad de tripulantes:</label>
                                     <asp:TextBox ID="txtTripulante" runat="server" CssClass="form-control" />
                                 </div>
                                 <asp:TextBox ID="txtIdVuelo" runat="server" Visible="false"></asp:TextBox>
@@ -196,7 +210,9 @@
 
                 </div>
                 <div class="modal-footer">
-                    <asp:Button ID="btnEditar" runat="server" Text='Editar' CommandArgument='<%# Eval("IdVuelo") %>' OnClick="Editar_Click" CssClass="btn btn-warning" Style="margin-right: 300px" />
+                    <asp:Button ID="btnGuardarVuelo" runat="server" Text='Guardar Vuelo' CommandArgument='<%# Eval("IdVuelo") %>' OnClick="btnGuardarVuelo_Click" CssClass="btn btn-info" Style="margin-right: 300px" Visible="false"/>
+
+                    <asp:Button ID="btnEditar" runat="server" Text='Editar' CommandArgument='<%# Eval("IdVuelo") %>' OnClick="Editar_Click" CssClass="btn btn-warning" Style="margin-right: 300px" Visible="false" />
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
