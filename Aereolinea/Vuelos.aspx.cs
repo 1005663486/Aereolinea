@@ -344,12 +344,12 @@ namespace Aereolinea
             txtAeronave.Text = "";
             txtFechaSalida.Text = "";
             txtFechaLlegada.Text = "";
-            txtOrigen.Text = "";
-            txtDestino.Text = "";
+            ddlOrigen.SelectedValue = "0";
+            ddlDestino.SelectedValue = "0";
             txtPasajeros.Text = "";
-            txtRuta.Text = "";
+            ddlRuta.SelectedValue = "0";
             txtSillas.Text = "";
-            txtPuertaAbordaje.Text = "";
+            ddlPuertaAbordaje.SelectedValue = "0";
             txtTripulante.Text = "";
             ddlEstado.SelectedIndex = 0;
             txtIdVuelo.Text = "";
@@ -364,11 +364,11 @@ namespace Aereolinea
                 DateTime fechaLlegada = DateTime.Parse(txtFechaLlegada.Text);
                 string estado = ddlEstado.SelectedValue;
                 string cantidadPasajeros = txtPasajeros.Text;
-                string destino = txtDestino.Text;
-                string ruta = txtRuta.Text;
-                string sillas = txtSillas.Text;
-                string puertaAbordaje = txtPuertaAbordaje.Text;
-                string origen = txtOrigen.Text;
+                string destino = ddlDestino.SelectedValue;
+                string ruta = ddlRuta.SelectedValue;
+                int sillas = Convert.ToInt32(txtSillas.Text);
+                string puertaAbordaje = ddlPuertaAbordaje.SelectedValue;
+                string origen = ddlOrigen.SelectedValue;
                 string tripulante = txtTripulante.Text;
                 // Crear y abrir conexión
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
@@ -381,11 +381,11 @@ namespace Aereolinea
                     cmd.Parameters.AddWithValue("@FechaLlegada", fechaLlegada);
                     cmd.Parameters.AddWithValue("@Estado", estado);
                     cmd.Parameters.AddWithValue("@CantidadPasajeros", cantidadPasajeros);
-                    cmd.Parameters.AddWithValue("@Destino", destino);
+                    cmd.Parameters.AddWithValue("@IdDestino", destino);
                     cmd.Parameters.AddWithValue("@Ruta", ruta);
                     cmd.Parameters.AddWithValue("@Sillas", sillas);
                     cmd.Parameters.AddWithValue("@PuertaAbordaje", puertaAbordaje);
-                    cmd.Parameters.AddWithValue("@Origen", origen);
+                    cmd.Parameters.AddWithValue("@IdOrigen", origen);
                     cmd.Parameters.AddWithValue("@Tripulante", tripulante);
                     cmd.Connection = conn;
 

@@ -169,6 +169,7 @@
                                 <div class="form-group">
                                     <label for="ddlRuta">Ruta:</label>
                                     <asp:DropDownList ID="ddlRuta" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="Seleccione una ruta" Value="0"></asp:ListItem>
                                     <asp:ListItem Text="Ruta 101" Value="Ruta 101"></asp:ListItem>
                                     <asp:ListItem Text="Ruta 102" Value="Ruta 102"></asp:ListItem>
                                     <asp:ListItem Text="Ruta 103" Value="Ruta 103"></asp:ListItem>
@@ -186,9 +187,10 @@
                                 <div class="form-group">
                                     <label for="ddlPuertaAbordaje">Puerta Abordaje:</label>
                                     <asp:DropDownList ID="ddlPuertaAbordaje" runat="server" CssClass="form-control">
+                                        <asp:ListItem Text="Seleccione una puerta" Value="0"></asp:ListItem>
                                         <asp:ListItem Text="A1" Value="A1"></asp:ListItem>
                                         <asp:ListItem Text="A2" Value="A2"></asp:ListItem>
-                                        <asp:ListItem Text="A2" Value="A3"></asp:ListItem>
+                                        <asp:ListItem Text="A3" Value="A3"></asp:ListItem>
                                         <asp:ListItem Text="B1" Value="B1"></asp:ListItem>
                                         <asp:ListItem Text="B2" Value="B2"></asp:ListItem>
                                         <asp:ListItem Text="B3" Value="B3"></asp:ListItem>
