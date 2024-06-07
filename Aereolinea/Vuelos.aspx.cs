@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Runtime.Remoting.Messaging;
+using System.Diagnostics;
 
 namespace Aereolinea
 {
@@ -17,8 +19,12 @@ namespace Aereolinea
 
             if (!IsPostBack)
             {
+                ListarVuelos();
+                ListarCiudadesDestino();
+                ListarCiudadesOrigen();
             }
-            ListarVuelos();
+
+
         }
         private void ListarVuelos()
         {
@@ -50,6 +56,88 @@ namespace Aereolinea
                 }
             }
         }
+        private void ListarCiudadesDestino()
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ListarCiudades";
+                cmd.Connection = conn;
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        DataTable dtCiudades = new DataTable();
+                        dtCiudades.Load(reader);
+
+                        ddlDestino.DataSource = dtCiudades;
+                        ddlDestino.DataTextField = "ciudad"; // Nombre de la columna que deseas mostrar
+                        ddlDestino.DataValueField = "id"; // Nombre de la columna que contiene el ID
+                        ddlDestino.DataBind();
+
+                        ddlDestino.Items.Insert(0, new ListItem("Seleccione una ciudad", "0"));
+
+                        ViewState["CDestino"] = dtCiudades;
+                    }
+                    else
+                    {
+                        ddlDestino.Items.Insert(0, new ListItem("Seleccione una ciudad", "0"));
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        private void ListarCiudadesOrigen()
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ListarCiudades";
+                cmd.Connection = conn;
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        DataTable dtCiudades = new DataTable();
+                        dtCiudades.Load(reader);
+
+                        ddlOrigen.DataSource = dtCiudades;
+                        ddlOrigen.DataTextField = "ciudad"; // Nombre de la columna que deseas mostrar
+                        ddlOrigen.DataValueField = "id"; // Nombre de la columna que contiene el ID
+                        ddlOrigen.DataBind();
+
+                        ddlOrigen.Items.Insert(0, new ListItem("Seleccione una ciudad", "0"));
+
+                        ViewState["COrigen"] = dtCiudades;
+                    }
+                    else
+                    {
+                        ddlDestino.Items.Insert(0, new ListItem("Seleccione una ciudad", "0"));
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
         protected void Ver_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -62,14 +150,14 @@ namespace Aereolinea
             {
                 // Obtenemos el valor de la columna 'Aeronave' del primer registro (suponiendo que solo haya un registro)
                 txtAeronave.Text = dtVuelo.Rows[0]["Aeronave"].ToString();
-                txtFechaSalida.Text = ((DateTime)dtVuelo.Rows[0]["FechaSalida"]).ToString("yyyy-MM-dd");
-                txtFechaLlegada.Text = ((DateTime)dtVuelo.Rows[0]["FechaLlegada"]).ToString("yyyy-MM-dd");
-                txtOrigen.Text = dtVuelo.Rows[0]["Origen"].ToString();
-                txtDestino.Text = dtVuelo.Rows[0]["Destino"].ToString();
+                txtFechaSalida.Text = dtVuelo.Rows[0]["FechaSalida"].ToString();
+                txtFechaLlegada.Text = dtVuelo.Rows[0]["FechaLlegada"].ToString();
+                ddlOrigen.SelectedValue = dtVuelo.Rows[0]["IdOrigen"].ToString();
+                ddlDestino.SelectedValue = dtVuelo.Rows[0]["IdDestino"].ToString();
                 txtPasajeros.Text = dtVuelo.Rows[0]["CantidadPasajeros"].ToString();
-                txtRuta.Text = dtVuelo.Rows[0]["Ruta"].ToString();
+                ddlRuta.SelectedValue = dtVuelo.Rows[0]["Ruta"].ToString();
                 txtSillas.Text = dtVuelo.Rows[0]["Sillas"].ToString();
-                txtPuertaAbordaje.Text = dtVuelo.Rows[0]["PuertaAbordaje"].ToString();
+                ddlPuertaAbordaje.SelectedValue = dtVuelo.Rows[0]["PuertaAbordaje"].ToString();
                 txtTripulante.Text = dtVuelo.Rows[0]["Tripulante"].ToString();
                 ddlEstado.SelectedValue = dtVuelo.Rows[0]["Estado"].ToString();
                 txtIdVuelo.Text = dtVuelo.Rows[0]["IdVuelo"].ToString();
@@ -124,11 +212,11 @@ namespace Aereolinea
                 DateTime fechaLlegada = Convert.ToDateTime(txtFechaLlegada.Text);
                 int estado = Convert.ToInt32(ddlEstado.SelectedValue);
                 int cantidadPasajeros = Convert.ToInt32(txtPasajeros.Text);
-                string destino = txtDestino.Text;
-                string ruta = txtRuta.Text;
+                string destino = ddlDestino.SelectedValue;
+                string ruta = ddlRuta.SelectedValue;
                 int sillas = Convert.ToInt32(txtSillas.Text);
-                string puertaAbordaje = txtPuertaAbordaje.Text;
-                string origen = txtOrigen.Text;
+                string puertaAbordaje = ddlPuertaAbordaje.SelectedValue;
+                string origen = ddlOrigen.SelectedValue;
                 string tripulante = txtTripulante.Text;
 
                 // Llamar al procedimiento almacenado para actualizar el vuelo
@@ -142,12 +230,25 @@ namespace Aereolinea
                     cmd.Parameters.AddWithValue("@FechaLlegada", fechaLlegada);
                     cmd.Parameters.AddWithValue("@Estado", estado);
                     cmd.Parameters.AddWithValue("@CantidadPasajeros", cantidadPasajeros);
-                    cmd.Parameters.AddWithValue("@Destino", destino);
+                    cmd.Parameters.AddWithValue("@IdDestino", destino);
                     cmd.Parameters.AddWithValue("@Ruta", ruta);
                     cmd.Parameters.AddWithValue("@Sillas", sillas);
                     cmd.Parameters.AddWithValue("@PuertaAbordaje", puertaAbordaje);
-                    cmd.Parameters.AddWithValue("@Origen", origen);
+                    cmd.Parameters.AddWithValue("@IdOrigen", origen);
                     cmd.Parameters.AddWithValue("@Tripulante", tripulante);
+
+                    Debug.WriteLine("FechaInicio: " + IdVuelo);
+                    Debug.WriteLine("FechaFin: " + aeronave);
+                    Debug.WriteLine("TipoMantenimiento: " + fechaSalida);
+                    Debug.WriteLine("Responsable: " + fechaLlegada);
+                    Debug.WriteLine("Codigo: " + estado);
+                    Debug.WriteLine("Estado: " + cantidadPasajeros);
+                    Debug.WriteLine("Observaciones: " + destino);
+                    Debug.WriteLine("Observaciones: " + ruta);
+                    Debug.WriteLine("Observaciones: " + sillas);
+                    Debug.WriteLine("Observaciones: " + puertaAbordaje);
+                    Debug.WriteLine("Observaciones: " + origen);
+                    Debug.WriteLine("Observaciones: " + tripulante);
 
                     try
                     {
