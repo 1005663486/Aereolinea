@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace Aereolinea
 {
-    public partial class _Mantenimiento : Page
+    public partial class _Registro : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -163,7 +163,7 @@ namespace Aereolinea
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine("Error: " + ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }
