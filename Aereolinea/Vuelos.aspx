@@ -124,8 +124,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtAeronave">Aeronave:</label>
-                                    <asp:TextBox ID="txtAeronave" runat="server" CssClass="form-control" />
-                                </div>
+                                    <asp:DropDownList ID="ddlAeronave" runat="server" CssClass="form-control">
+                                        <asp:ListItem Text="Seleccione una aeronave" Value="0"></asp:ListItem>
+                                        <asp:ListItem Text="Boeing 737" Value="Boeing 737"></asp:ListItem>
+                                        <asp:ListItem Text="Airbus A320" Value="Airbus A320"></asp:ListItem>
+                                        <asp:ListItem Text="Boeing 747" Value="Boeing 747"></asp:ListItem>
+                                        <asp:ListItem Text="Embraer 190" Value="Embraer 190"></asp:ListItem>
+                                        <asp:ListItem Text="Boeing 777" Value="Boeing 777"></asp:ListItem>
+                                    </asp:DropDownList>
+</div>
                                 <div class="form-group">
                                     <label for="FechaSalida">Fecha de Salida:</label>
                                     <asp:TextBox ID="txtFechaSalida" runat="server" CssClass="form-control"  TextMode="Date" />
@@ -177,10 +184,10 @@
                                 <div class="form-group">
                                     <label for="ddlPuertaAbordaje">Puerta Abordaje:</label>
                                     <asp:DropDownList ID="ddlPuertaAbordaje" runat="server" CssClass="form-control">
+                                        <asp:ListItem Text="Seleccione puerta" Value="0"></asp:ListItem>
                                         <asp:ListItem Text="A1" Value="A1"></asp:ListItem>
                                         <asp:ListItem Text="A2" Value="A2"></asp:ListItem>
                                         <asp:ListItem Text="A2" Value="A3"></asp:ListItem>
-                                        <asp:ListItem Text="Seleccione una puerta" Value="0"></asp:ListItem>
                                         <asp:ListItem Text="A1" Value="A1"></asp:ListItem>
                                         <asp:ListItem Text="A2" Value="A2"></asp:ListItem>
                                         <asp:ListItem Text="A3" Value="A3"></asp:ListItem>

@@ -64,11 +64,11 @@
                             <div class="col-md-12 col-lg-12 col-xs-12 col-12">
                                 <div class="form-group col-md-4 col-xs-4 text-left">
                                     <label for="txtFechaInicio">Fecha de inicio(dd-mm-aaaa):</label>
-                                    <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date"/>
                                 </div>
                                 <div class="form-group col-md-4 col-xs-4 text-left">
                                     <label for="txtFechaFin">Fecha de fin(dd-mm-aaaa):</label>
-                                    <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" />
+                                    <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" TextMode="Date"/>
                                 </div>
                                 <div class="form-group col-md-4 col-xs-4 text-left">
                                     <label for="ddlTipoMantenimiento">Tipo de Mantenimiento:</label>

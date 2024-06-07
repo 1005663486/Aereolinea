@@ -149,7 +149,7 @@ namespace Aereolinea
             if (dtVuelo.Rows.Count > 0)
             {
                 // Obtenemos el valor de la columna 'Aeronave' del primer registro (suponiendo que solo haya un registro)
-                txtAeronave.Text = dtVuelo.Rows[0]["Aeronave"].ToString();
+                ddlAeronave.Text = dtVuelo.Rows[0]["Aeronave"].ToString();
                 txtFechaSalida.Text = dtVuelo.Rows[0]["FechaSalida"].ToString();
                 txtFechaLlegada.Text = dtVuelo.Rows[0]["FechaLlegada"].ToString();
                 ddlOrigen.SelectedValue = dtVuelo.Rows[0]["IdOrigen"].ToString();
@@ -207,7 +207,7 @@ namespace Aereolinea
             {
                 // Obtener los valores de los controles de entrada
                 int IdVuelo = Convert.ToInt32(txtIdVuelo.Text);
-                string aeronave = txtAeronave.Text;
+                string aeronave = ddlAeronave.Text;
                 DateTime fechaSalida = Convert.ToDateTime(txtFechaSalida.Text);
                 DateTime fechaLlegada = Convert.ToDateTime(txtFechaLlegada.Text);
                 int estado = Convert.ToInt32(ddlEstado.SelectedValue);
@@ -341,7 +341,7 @@ namespace Aereolinea
         }
         private void LimpiarCampos()
         {
-            txtAeronave.Text = "";
+            ddlAeronave.Text = "";
             txtFechaSalida.Text = "";
             txtFechaLlegada.Text = "";
             ddlOrigen.SelectedValue = "0";
@@ -359,7 +359,7 @@ namespace Aereolinea
         {
             try
             {
-                string aeronave = txtAeronave.Text;
+                string aeronave = ddlAeronave.Text;
                 DateTime FechaSalida = DateTime.Parse(txtFechaSalida.Text);
                 DateTime fechaLlegada = DateTime.Parse(txtFechaLlegada.Text);
                 string estado = ddlEstado.SelectedValue;
