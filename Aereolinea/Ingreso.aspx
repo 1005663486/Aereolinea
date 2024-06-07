@@ -12,10 +12,10 @@
             height: 90vh;
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Evitar el desplazamiento horizontal */
+            overflow-x: hidden; 
             display: flex;
-            justify-content: center; /* Centrar horizontalmente */
-            align-items: center; /* Centrar verticalmente */
+            justify-content: center;
+            align-items: center;
         }
 
         .ridge {
@@ -48,6 +48,14 @@
         .btn-separado {
             margin-right: 10px;
         }
+        .registro-link {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
 
     </style>
 
@@ -59,6 +67,7 @@
         </div>
         <div class="panel-footer text-center">
             <asp:Button ID="btnIniciar" runat="server" OnClick="Iniciar_Click" CssClass="btn btn-info" Text="Iniciar sesión" />
+            <a href="Registro.aspx" class="registro-link">¿No tiene cuenta? Regístrese aquí</a>
         </div>
     </div>
 </asp:Content>

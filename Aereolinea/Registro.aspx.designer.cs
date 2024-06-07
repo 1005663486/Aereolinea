@@ -15,69 +15,57 @@ namespace Aereolinea
     {
 
         /// <summary>
-
         /// Control txtDocumento.
-
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-
         protected global::System.Web.UI.WebControls.TextBox txtDocumento;
 
         /// <summary>
         /// Control txtNombres.
-
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-
         protected global::System.Web.UI.WebControls.TextBox txtNombres;
 
         /// <summary>
         /// Control txtApellidos.
-
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-
         protected global::System.Web.UI.WebControls.TextBox txtApellidos;
 
         /// <summary>
         /// Control txtUsuario.
-
-        protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
-
-        /// <summary>
-        /// Control ddlTipoMantenimiento.
-
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUsuario;
 
         /// <summary>
         /// Control txtContra.
-
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-
         protected global::System.Web.UI.WebControls.TextBox txtContra;
 
         /// <summary>
         /// Control txtCorreo.
-
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
 
         /// <summary>
@@ -87,27 +75,24 @@ namespace Aereolinea
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
 
         /// <summary>
+        /// Control txtDireccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
 
         /// <summary>
         /// Control txtFechaNacimiento.
-
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
 
         /// <summary>
@@ -118,6 +103,5 @@ namespace Aereolinea
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegistrar;
-
     }
 }

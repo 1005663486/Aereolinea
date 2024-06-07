@@ -7,22 +7,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> Aereolinea</title>
-    <script>
-        function cerrarSesion() {
-            PageMethods.CerrarSesion_Click(onSuccess, onError);
-        }
-
-        function onSuccess(response) {
-            // Redirigir a la página de inicio de sesión u otra página apropiada
-            window.location.href = 'Ingreso.aspx';
-        }
-
-        function onError(error) {
-            console.error('Error al cerrar sesión:', error.get_message());
-        }
-    </script>
-
-
 
     <!-- Estilos CSS -->
     <style>
