@@ -157,7 +157,6 @@
                                 <asp:ListItem Text="Inactivo" Value="0"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
-
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -167,6 +166,7 @@
                                 <div class="form-group">
                                     <label for="ddlRuta">Ruta:</label>
                                     <asp:DropDownList ID="ddlRuta" runat="server" CssClass="form-control">
+
                                     <asp:ListItem Text="Seleccione una ruta" Value="0"></asp:ListItem>
                                     <asp:ListItem Text="Ruta 101" Value="Ruta 101"></asp:ListItem>
                                     <asp:ListItem Text="Ruta 102" Value="Ruta 102"></asp:ListItem>
