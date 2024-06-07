@@ -143,7 +143,8 @@ namespace Aereolinea
             Button btn = (Button)sender;
             int idVuelo = Convert.ToInt32(btn.CommandArgument);
             DataTable dtVuelo = ObtenerVueloPorId(idVuelo);
-
+            btnGuardarVuelo.Visible = false;
+            btnEditar.Visible = true;
             // Verificamos si se encontraron datos en el DataTable
             if (dtVuelo.Rows.Count > 0)
             {
@@ -158,7 +159,7 @@ namespace Aereolinea
                 txtSillas.Text = dtVuelo.Rows[0]["Sillas"].ToString();
                 ddlPuertaAbordaje.SelectedValue = dtVuelo.Rows[0]["PuertaAbordaje"].ToString();
                 txtTripulante.Text = dtVuelo.Rows[0]["Tripulante"].ToString();
-                txtEstado.Text = dtVuelo.Rows[0]["Estado"].ToString();
+                ddlEstado.SelectedValue = dtVuelo.Rows[0]["Estado"].ToString();
                 txtIdVuelo.Text = dtVuelo.Rows[0]["IdVuelo"].ToString();
                 // Luego, abrimos el modal
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Vuelos", "abrirModal();", true);
@@ -209,7 +210,7 @@ namespace Aereolinea
                 string aeronave = txtAeronave.Text;
                 DateTime fechaSalida = Convert.ToDateTime(txtFechaSalida.Text);
                 DateTime fechaLlegada = Convert.ToDateTime(txtFechaLlegada.Text);
-                int estado = Convert.ToInt32(txtEstado.Text);
+                int estado = Convert.ToInt32(ddlEstado.SelectedValue);
                 int cantidadPasajeros = Convert.ToInt32(txtPasajeros.Text);
                 string destino = ddlDestino.SelectedValue;
                 string ruta = ddlRuta.SelectedValue;
@@ -326,5 +327,86 @@ namespace Aereolinea
             }
         }
 
+        protected void btnAgregarVuelo_Click(object sender, EventArgs e)
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Vuelos", "abrirModal();", true);
+            LimpiarCampos();
+            // Mostrar el botón de guardar
+            btnGuardarVuelo.Visible = true;
+
+            // Ocultar el botón de editar (si es necesario)
+            btnEditar.Visible = false;
+
+
+        }
+        private void LimpiarCampos()
+        {
+            txtAeronave.Text = "";
+            txtFechaSalida.Text = "";
+            txtFechaLlegada.Text = "";
+            txtOrigen.Text = "";
+            txtDestino.Text = "";
+            txtPasajeros.Text = "";
+            txtRuta.Text = "";
+            txtSillas.Text = "";
+            txtPuertaAbordaje.Text = "";
+            txtTripulante.Text = "";
+            ddlEstado.SelectedIndex = 0;
+            txtIdVuelo.Text = "";
+        }
+
+        protected void btnGuardarVuelo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string aeronave = txtAeronave.Text;
+                DateTime FechaSalida = DateTime.Parse(txtFechaSalida.Text);
+                DateTime fechaLlegada = DateTime.Parse(txtFechaLlegada.Text);
+                string estado = ddlEstado.SelectedValue;
+                string cantidadPasajeros = txtPasajeros.Text;
+                string destino = txtDestino.Text;
+                string ruta = txtRuta.Text;
+                string sillas = txtSillas.Text;
+                string puertaAbordaje = txtPuertaAbordaje.Text;
+                string origen = txtOrigen.Text;
+                string tripulante = txtTripulante.Text;
+                // Crear y abrir conexión
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_CreateVuelo";
+                    cmd.Parameters.AddWithValue("@Aeronave", aeronave);
+                    cmd.Parameters.AddWithValue("@FechaSalida", FechaSalida);
+                    cmd.Parameters.AddWithValue("@FechaLlegada", fechaLlegada);
+                    cmd.Parameters.AddWithValue("@Estado", estado);
+                    cmd.Parameters.AddWithValue("@CantidadPasajeros", cantidadPasajeros);
+                    cmd.Parameters.AddWithValue("@Destino", destino);
+                    cmd.Parameters.AddWithValue("@Ruta", ruta);
+                    cmd.Parameters.AddWithValue("@Sillas", sillas);
+                    cmd.Parameters.AddWithValue("@PuertaAbordaje", puertaAbordaje);
+                    cmd.Parameters.AddWithValue("@Origen", origen);
+                    cmd.Parameters.AddWithValue("@Tripulante", tripulante);
+                    cmd.Connection = conn;
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Si llega a este punto, significa que la inserción fue exitosa
+                // Puedes mostrar un mensaje de éxito, recargar la página o realizar cualquier otra acción necesaria
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('¡Éxito!', 'Se ha creado el vuelo correctamente.', 'success');", true);
+                LimpiarCampos();
+                ListarVuelos();
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción que ocurra durante el proceso de inserción
+                // Aquí puedes mostrar un mensaje de error al usuario, hacer un registro de errores, etc.
+                Console.WriteLine("Error al crear el vuelo: " + ex.Message);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al crear el vuelo.', 'error');", true);
+            }
+
+        }
     }
 }
