@@ -1,13 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Data;
-using System.Diagnostics;
+using System.Web.UI;
 
 namespace Aereolinea
 {
@@ -15,168 +10,69 @@ namespace Aereolinea
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+        }
+
+        protected void Registrar_Click(object sender, EventArgs e)
+        {
+            // Capturar los valores de los campos de texto
+            string documento = txtDocumento.Text.Trim();
+            string nombres = txtNombres.Text.Trim();
+            string apellidos = txtApellidos.Text.Trim();
+            string usuario = txtUsuario.Text.Trim();
+            string contraseña = txtContra.Text.Trim();
+            string correo = txtCorreo.Text.Trim();
+            int telefono = int.Parse(txtTelefono.Text.Trim());
+            string direccion = txtDireccion.Text.Trim();
+            string fechaNacimiento = txtFechaNacimiento.Text.Trim();
+
+            // Llamar al método para registrar el usuario en la base de datos
+            if (RegistrarUsuario(documento, nombres, apellidos, usuario, contraseña, correo, telefono, direccion, fechaNacimiento))
             {
-                CargarAeronavesActivas();
-                CargarPersonalMant();
+                // Redireccionar a la página de inicio de sesión después del registro exitoso
+                Response.Redirect("Ingreso.aspx");
+            }
+            else
+            {
+                MostrarMensaje("Error al registrar el usuario.");
             }
         }
-        private void CargarAeronavesActivas()
+
+        private bool RegistrarUsuario(string documento, string nombres, string apellidos, string usuario, string contraseña, string correo, int telefono, string direccion, string fechaNacimiento)
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
+            string connectionString = ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand
-                {
-                    CommandType = CommandType.StoredProcedure,
-                    CommandText = "Listar_AeronavesActivas",
-                    Connection = conn
-                };
+                SqlCommand cmd = new SqlCommand("sp_CreateUsuario", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Documento", documento);
+                cmd.Parameters.AddWithValue("@Nombres", nombres);
+                cmd.Parameters.AddWithValue("@Apellidos", apellidos);
+                cmd.Parameters.AddWithValue("@Usuario", usuario);
+                cmd.Parameters.AddWithValue("@Contraseña", contraseña);
+                cmd.Parameters.AddWithValue("@Correo", correo);
+                cmd.Parameters.AddWithValue("@Telefono", telefono);
+                cmd.Parameters.AddWithValue("@Direccion", direccion);
+                cmd.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento);
 
                 try
                 {
-                    conn.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        DataTable dtAeronaves = new DataTable();
-                        dtAeronaves.Load(reader);
-
-                        ddlAeronavesActivas.DataSource = dtAeronaves;
-                        ddlAeronavesActivas.DataTextField = "Codigo"; // Nombre de la columna que deseas mostrar
-                        ddlAeronavesActivas.DataValueField = "IdAeronave"; // Nombre de la columna que contiene el ID
-                        ddlAeronavesActivas.DataBind();
-
-                        ddlAeronavesActivas.Items.Insert(0, new ListItem("Seleccione una aeronave", "0"));
-
-                        ViewState["Aeronaves"] = dtAeronaves;
-                    }
-                    else
-                    {
-                        ddlAeronavesActivas.Items.Insert(0, new ListItem("No hay aeronaves activas", "0"));
-                    }
-                    reader.Close();
-
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    return true; // Registro exitoso
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error: " + ex.Message);
+                    MostrarMensaje("Ocurrió un error al registrar el usuario: " + ex.Message);
+                    return false; // Error en el registro
                 }
             }
         }
-        private void CargarPersonalMant()
+
+        private void MostrarMensaje(string mensaje)
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
-            {
-                SqlCommand cmd = new SqlCommand
-                {
-                    CommandType = CommandType.StoredProcedure,
-                    CommandText = "Listar_PersonalMant",
-                    Connection = conn
-                };
-
-                try
-                {
-                    conn.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        DataTable dtResponsables = new DataTable();
-                        dtResponsables.Load(reader);
-
-                        ddlResponsable.DataSource = dtResponsables;
-                        ddlResponsable.DataTextField = "Nombre"; // Nombre de la columna que deseas mostrar
-                        ddlResponsable.DataValueField = "IdTripulacion"; // Nombre de la columna que contiene el ID
-                        ddlResponsable.DataBind();
-
-                        ddlResponsable.Items.Insert(0, new ListItem("Seleccione el responsable", "0"));
-
-                        ViewState["Responsables"] = dtResponsables;
-                    }
-                    else
-                    {
-                        ddlResponsable.Items.Insert(0, new ListItem("No hay responsables activos", "0"));
-                    }
-                    reader.Close();
-
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-            }
+            string script = $"alert('{mensaje}')";
+            ScriptManager.RegisterStartupScript(this, GetType(), "Mensaje", script, true);
         }
-        protected void Guardar_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                Button btn = (Button)sender;
-
-                DateTime fechaInicio = DateTime.Parse(txtFechaInicio.Text);
-                DateTime fechaFin = DateTime.Parse(txtFechaFin.Text);
-                string tipoMantenimiento = ddlTipoMantenimiento.SelectedValue;
-                string responsable = ddlResponsable.SelectedValue;
-                string codigo = ddlAeronavesActivas.SelectedValue;
-                string estado = ddlEstado.SelectedValue;
-                string observaciones = txtObservaciones.Text;
-
-                Debug.WriteLine("FechaInicio: " + fechaInicio);
-                Debug.WriteLine("FechaFin: " + fechaFin);
-                Debug.WriteLine("TipoMantenimiento: " + tipoMantenimiento);
-                Debug.WriteLine("Responsable: " + responsable);
-                Debug.WriteLine("Codigo: " + codigo);
-                Debug.WriteLine("Estado: " + estado);
-                Debug.WriteLine("Observaciones: " + observaciones);
-
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
-                {
-                    SqlCommand cmd = new SqlCommand("sp_CreateMantenimiento", conn)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
-                    cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
-                    cmd.Parameters.AddWithValue("@TipoMantenimiento", tipoMantenimiento);
-                    cmd.Parameters.AddWithValue("@IdTripulante", responsable);
-                    cmd.Parameters.AddWithValue("@IdAeronave", codigo);
-                    cmd.Parameters.AddWithValue("@Estado", estado);
-                    cmd.Parameters.AddWithValue("@Observaciones", observaciones);
-
-                    try
-                    {
-                        conn.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        // Verificar si se realizaron cambios en la base de datos
-                        if (rowsAffected > 0)
-                        {
-                            // La actualización fue exitosa
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('¡Éxito!', 'La actualización fue exitosa.', 'success');", true);
-                            CargarAeronavesActivas();
-                        }
-                        else
-                        {
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al actualizar el vuelo.', 'error');", true);
-                        }
-                        CargarAeronavesActivas();
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al actualizar el vuelo.', 'error');", true);
-            }
-
-        }
-        protected void VerHistorial_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("HistorialMantenimiento.aspx");
-        }
-
     }
 }

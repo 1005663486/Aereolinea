@@ -38,72 +38,116 @@
         margin: 5px;
     }
 
-    .titulo-mantenimiento {
+    .titulo {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: black;
+        text-align: center;
         margin-top: 10px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
+    .panel{
+        margin: 20%;
+
+    }
     .ridge {
         border-style: ridge;
+    }
+    input,
+    select{
+        max-width: 100%;
     }
     .full-width{
         width:100%
     }
     </style>
 
-    <div class="col-md-12 col-lg-12 col-xs-12 col-12 text-center">
+    <div class="col-md-10 col-lg-12 col-xs-12 col-12 text-center">
         <div class="row justify-content-center align-items-center" style="height: 100vh;">
-            <div class="col-md-12 col-lg-12 col-xs-12 col-12">
-                <asp:Button ID="btnVerHistorial" runat="server" OnClick="VerHistorial_Click" CssClass="btn btn-info" Text="Ver historial" />
-                <div id="panelMantenimiento" class="panel panel-default">
+            <div class="col-md-10 col-lg-12 col-xs-12 col-12">
+                <div id="panelMantenimiento col-md-6" class="panel panel-default">
 
-                    <h1 class="titulo-mantenimiento ridge">Agregar mantenimiento</h1>
+                    <h1 class="titulo ridge">Registro de usuario</h1>
 
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-12 col-lg-12 col-xs-12 col-12">
-                                <div class="form-group col-md-4 col-xs-4 text-left">
-                                    <label for="txtFechaInicio">Fecha de inicio(dd-mm-aaaa):</label>
-                                    <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" />
+                            <div class="col-md-10 col-lg-12 col-xs-12 col-12">
+                                <div class="form-group col-md-12 col-xs-12 text-left">
+                                    <div class="form-group col-md-4 col-xs-4 col-4 col-xl-4 col-lg-4 text-center">
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                        <label for="txtDocumento">Documento:</label>
+                                        <asp:TextBox ID="txtDocumento" runat="server" CssClass="form-control" />
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4 col-xs-4 text-left">
-                                    <label for="txtFechaFin">Fecha de fin(dd-mm-aaaa):</label>
-                                    <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" />
+                                <div class="form-group col-md-12 col-xs-12 text-left">
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    <label for="txtNombres">Nombres:</label>
+                                    <asp:TextBox ID="txtNombres" runat="server" CssClass="form-control" />
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4 col-xs-4 text-left">
-                                    <label for="ddlTipoMantenimiento">Tipo de Mantenimiento:</label>
-                                    <asp:DropDownList ID="ddlTipoMantenimiento" runat="server" CssClass="form-control">
-                                        <asp:ListItem Text="Correctivo" Value="Correctivo"></asp:ListItem>
-                                        <asp:ListItem Text="Preventivo" Value="Preventivo"></asp:ListItem>
-                                    </asp:DropDownList>
+                                <div class="form-group col-md-12 col-xs-12 text-left">
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    <label for="txtApellidos">Apellidos:</label>
+                                    <asp:TextBox ID="txtApellidos" runat="server" CssClass="form-control" />
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4 col-xs-4 text-left">
-                                    <label for="ddlResponsable">Responsable:</label>
-                                    <asp:DropDownList ID="ddlResponsable" runat="server" CssClass="form-control"></asp:DropDownList>
+                                <div class="form-group col-md-12 col-xs-12 text-left">
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    <label for="txtUsuario">Usuario:</label>
+                                    <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" />
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4 col-xs-4 text-left">
-                                    <label for="ddlAeronavesActivas">Aeronave:</label>
-                                    <asp:DropDownList ID="ddlAeronavesActivas" runat="server" CssClass="form-control"></asp:DropDownList>
+                                <div class="form-group col-md-12 col-xs-12 text-left">
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    <label for="txtContra">Contraseña:</label>
+                                    <asp:TextBox ID="txtContra" runat="server" CssClass="form-control" TextMode="Password" />
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4 col-xs-4 text-left">
-                                    <label for="ddlEstado">Estado:</label>
-                                    <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-control">
-                                        <asp:ListItem Text="Pendiente" Value="Pendiente"></asp:ListItem>
-                                        <asp:ListItem Text="En curso" Value="En curso"></asp:ListItem>
-                                        <asp:ListItem Text="Finalizado" Value="Finalizado"></asp:ListItem>
-                                        <asp:ListItem Text="Pospuesto" Value="Pospuesto"></asp:ListItem>
-                                    </asp:DropDownList>
+                                <div class="form-group col-md-12 col-xs-12 text-left"></div>
+                                     <div class="form-group col-md-12 col-xs-4 text-center">
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                        <label for="txtCorreo">Correo:</label>
+                                        <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" />
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-12 col-lg-12 col-xs-12 col-12 text-left">
-                                    <label for="txtObservaciones">Observaciones:</label>
-                                    <asp:TextBox ID="txtObservaciones" runat="server" CssClass="form-control full-width" TextMode="MultiLine" Rows="3" />
+                                <div class="form-group col-md-12 col-xs-12 text-left">
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                        <label for="txtTelefono">Teléfono:</label>
+                                        <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 col-xs-12 text-left">
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                        <label for="txtDireccion">Dirección:</label>
+                                        <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 col-xs-12 text-left">
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                    </div>
+                                    <div class="form-group col-md-4 col-xs-4 text-center">
+                                        <label for="txtFechaNacimiento">Fecha de Nacimiento:</label>
+                                        <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="panel-footer text-center">
-                        <asp:Button ID="btnGuardar" runat="server" OnClick="Guardar_Click" CssClass="btn btn-info" Text="Guardar" />
+                        <asp:Button ID="btnRegistrar" runat="server" OnClick="Registrar_Click" CssClass="btn btn-info" Text="Registrar usuario" />
                     </div>
                 </div>
             </div>
