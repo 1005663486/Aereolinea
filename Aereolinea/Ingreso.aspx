@@ -6,17 +6,17 @@
     <style>
         /* Estilos generales */
         body {
-            margin: 0;
-            padding: 0;
+
             overflow: hidden; /* Evitar el desplazamiento */
             display: flex;
             justify-content: center; /* Centrar horizontalmente */
             align-items: center; /* Centrar verticalmente */
             height: 100vh;
-            font-size: 18px; /* Tamaño de fuente más grande */
+            font-size: 18px; /* Tamaï¿½o de fuente mï¿½s grande */
             background: linear-gradient(270deg, #bc8be5, #5a3876, #7f7fd5, #86a8e7, #91eae4);
             background-size: 1000% 1000%;
             animation: gradientAnimation 20s ease infinite;
+
         }
 
         @keyframes gradientAnimation {
@@ -59,11 +59,11 @@
         }
 
         .panel {
-            max-width: 500px; /* Ancho máximo del panel aumentado */
+            max-width: 500px; /* Ancho mï¿½ximo del panel aumentado */
             background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
             padding: 30px; /* Mayor espacio interno */
-            border-radius: 15px; /* Bordes redondeados más grandes */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+            border-radius: 15px; /* Bordes redondeados mï¿½s grandes */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra mï¿½s pronunciada */
             margin-bottom: 50px; /* Mayor espacio abajo */
         }
 
@@ -71,23 +71,31 @@
         select {
             width: 100%;
             margin-bottom: 20px; /* Mayor espacio abajo */
-            font-size: 18px; /* Tamaño de fuente más grande */
+            font-size: 18px; /* Tamaï¿½o de fuente mï¿½s grande */
         }
 
         .btn-separado {
             margin-right: 10px;
         }
+        .registro-link {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
 
-        /* Estilos para los textos de misión y visión */
+        /* Estilos para los textos de misiï¿½n y visiï¿½n */
         .text-switcher {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #fff;
             text-align: center;
             margin-bottom: 50px; /* Mayor espacio abajo */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-size: 24px; /* Tamaño de fuente más grande */
+            font-size: 24px; /* Tamaï¿½o de fuente mï¿½s grande */
             flex: 1; /* Ocupa el espacio restante */
-            max-width: 500px; /* Ancho máximo del contenedor de textos */
+            max-width: 500px; /* Ancho mï¿½ximo del contenedor de textos */
         }
         /* Estilos para los iconos */
         .fa {
@@ -98,45 +106,50 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <img src="Images/4071704.png" alt="Icono de avión" style="vertical-align:central; height: 84px; width: 103px;" />
+                <img src="Images/4071704.png" alt="Icono de aviï¿½n" style="vertical-align:central; height: 84px; width: 103px;" />
             </div>
           <div class="col-md-10">
                <h1 class="titulo">AVIACOL - EMPRESA DE VUELOS</h1>
             </div>
         </div>
+
         <br />
         <div class="row">
 
             <div class="col-md-5" style="padding-top: 100px;">
 
                 <div class="text-switcher" id="textSwitcher">
-                    <span id="switchText">Nuestra Misión: Ofrecer el mejor servicio de transporte aéreo.</span>
+                    <span id="switchText">Nuestra Misiï¿½n: Ofrecer el mejor servicio de transporte aï¿½reo.</span>
                 </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-6">
                 <div class="panel">
-                    <h2 class="titulo ridge"><i class="fa fa-sign-in-alt"></i>Inicio de sesión</h2>
+                    <h2 class="titulo ridge"><i class="fa fa-sign-in-alt"></i>Inicio de sesiï¿½n</h2>
                     <div class="panel-body">
                         <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Usuario" />
-                        <asp:TextBox ID="txtContra" runat="server" CssClass="form-control" TextMode="Password" placeholder="Contraseña" />
+                        <asp:TextBox ID="txtContra" runat="server" CssClass="form-control" TextMode="Password" placeholder="Contraseï¿½a" />
                     </div>
                     <div class="panel-footer text-center">
-                        <asp:Button ID="btnIniciar" runat="server" OnClick="Iniciar_Click" CssClass="btn btn-info" Text="Iniciar sesión" />
+                        <asp:Button ID="btnIniciar" runat="server" OnClick="Iniciar_Click" CssClass="btn btn-info" Text="Iniciar sesiï¿½n" />
                     </div>
                 </div>
             </div>
+
+        <div class="panel-footer text-center">
+            <asp:Button ID="btnIniciar" runat="server" OnClick="Iniciar_Click" CssClass="btn btn-info" Text="Iniciar sesiï¿½n" />
+            <a href="Registro.aspx" class="registro-link">ï¿½No tiene cuenta? Regï¿½strese aquï¿½</a>
         </div>
     </div>
 
     <script>
-        // JavaScript para alternar entre textos de misión y visión
+        // JavaScript para alternar entre textos de misiï¿½n y visiï¿½n
         document.addEventListener('DOMContentLoaded', (event) => {
             const switchText = document.getElementById('switchText');
 
             const texts = [
-                "Nuestra Misión: Ofrecer el mejor servicio de transporte aéreo.",
-                "Nuestra Visión: Ser la aerolínea líder en innovación y calidad."
+                "Nuestra Misiï¿½n: Ofrecer el mejor servicio de transporte aï¿½reo.",
+                "Nuestra Visiï¿½n: Ser la aerolï¿½nea lï¿½der en innovaciï¿½n y calidad."
             ];
 
             let index = 0;
