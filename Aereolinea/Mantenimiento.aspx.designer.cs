@@ -5,7 +5,6 @@
 //     Los cambios en este archivo podr�an causar un comportamiento incorrecto y se perder�n si
 //     se vuelve a generar el c�digo. 
 // </generado autom�ticamente>
-//------------------------------------------------------------------------------
 
 namespace Aereolinea
 {
@@ -16,8 +15,10 @@ namespace Aereolinea
         /// Control btnVerHistorial.
         /// </summary>
         /// <remarks>
+
         /// Campo generado autom�ticamente.
         /// Para modificarlo, mueva la declaraci�n del campo del archivo del dise�ador al archivo de c�digo subyacente.
+
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnVerHistorial;
 
@@ -37,6 +38,7 @@ namespace Aereolinea
         /// <remarks>
         /// Campo generado autom�ticamente.
         /// Para modificarlo, mueva la declaraci�n del campo del archivo del dise�ador al archivo de c�digo subyacente.
+
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
 
@@ -46,6 +48,7 @@ namespace Aereolinea
         /// <remarks>
         /// Campo generado autom�ticamente.
         /// Para modificarlo, mueva la declaraci�n del campo del archivo del dise�ador al archivo de c�digo subyacente.
+
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoMantenimiento;
 
@@ -53,8 +56,10 @@ namespace Aereolinea
         /// Control ddlResponsable.
         /// </summary>
         /// <remarks>
+
         /// Campo generado autom�ticamente.
         /// Para modificarlo, mueva la declaraci�n del campo del archivo del dise�ador al archivo de c�digo subyacente.
+
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlResponsable;
 
@@ -64,6 +69,7 @@ namespace Aereolinea
         /// <remarks>
         /// Campo generado autom�ticamente.
         /// Para modificarlo, mueva la declaraci�n del campo del archivo del dise�ador al archivo de c�digo subyacente.
+
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAeronavesActivas;
 
@@ -71,6 +77,7 @@ namespace Aereolinea
         /// Control ddlEstado.
         /// </summary>
         /// <remarks>
+
         /// Campo generado autom�ticamente.
         /// Para modificarlo, mueva la declaraci�n del campo del archivo del dise�ador al archivo de c�digo subyacente.
         /// </remarks>
@@ -80,8 +87,10 @@ namespace Aereolinea
         /// Control txtObservaciones.
         /// </summary>
         /// <remarks>
+
         /// Campo generado autom�ticamente.
         /// Para modificarlo, mueva la declaraci�n del campo del archivo del dise�ador al archivo de c�digo subyacente.
+
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
 
@@ -89,8 +98,10 @@ namespace Aereolinea
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>
+
         /// Campo generado autom�ticamente.
         /// Para modificarlo, mueva la declaraci�n del campo del archivo del dise�ador al archivo de c�digo subyacente.
+
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
     }

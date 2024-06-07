@@ -153,6 +153,7 @@ namespace Aereolinea
                         {
                             // La actualización fue exitosa
                             ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('¡Éxito!', 'La actualización fue exitosa.', 'success');", true);
+
                             CargarAeronavesActivas();
                         }
                         else

@@ -112,6 +112,7 @@
                         <asp:Button ID="btnGuardar" runat="server" OnClick="Guardar_Click" CssClass="btn btn-info" Text="Guardar" />
                     
                     </div>
+
                 </div>
             </div>
         </div>
