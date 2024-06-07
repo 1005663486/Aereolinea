@@ -142,7 +142,7 @@
         <div class="container">
             <div class="sidebar">
                 <a runat="server" href="~/Vuelos">Vuelos</a>
-                <a runat="server" href="~/About">Aeronaves</a>
+                <a runat="server" href="~/Aeronaves">Aeronaves</a>
                 <a runat="server" href="~/Mantenimiento">Mantenimiento</a>
                 <a runat="server" href="~/Tripulacion">Tripulacion</a>
             </div>
