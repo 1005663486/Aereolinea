@@ -151,7 +151,6 @@ namespace Aereolinea
         private DataTable ObtenerMantenimientoPorId(int IdMantenimiento)
         {
             DataTable dtMantenimiento = new DataTable();
-
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand

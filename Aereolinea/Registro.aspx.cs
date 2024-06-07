@@ -1,8 +1,10 @@
 using System;
+
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.UI;
+
 
 namespace Aereolinea
 {
@@ -10,6 +12,7 @@ namespace Aereolinea
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void Registrar_Click(object sender, EventArgs e)
@@ -19,16 +22,16 @@ namespace Aereolinea
             string nombres = txtNombres.Text.Trim();
             string apellidos = txtApellidos.Text.Trim();
             string usuario = txtUsuario.Text.Trim();
-            string contraseÒa = txtContra.Text.Trim();
+            string contrase√±a = txtContra.Text.Trim();
             string correo = txtCorreo.Text.Trim();
             int telefono = int.Parse(txtTelefono.Text.Trim());
             string direccion = txtDireccion.Text.Trim();
             string fechaNacimiento = txtFechaNacimiento.Text.Trim();
 
-            // Llamar al mÈtodo para registrar el usuario en la base de datos
-            if (RegistrarUsuario(documento, nombres, apellidos, usuario, contraseÒa, correo, telefono, direccion, fechaNacimiento))
+            // Llamar al m√©todo para registrar el usuario en la base de datos
+            if (RegistrarUsuario(documento, nombres, apellidos, usuario, contrase√±a, correo, telefono, direccion, fechaNacimiento))
             {
-                // Redireccionar a la p·gina de inicio de sesiÛn despuÈs del registro exitoso
+                // Redireccionar a la p√°gina de inicio de sesi√≥n despu√©s del registro exitoso
                 Response.Redirect("Ingreso.aspx");
             }
             else
@@ -37,7 +40,7 @@ namespace Aereolinea
             }
         }
 
-        private bool RegistrarUsuario(string documento, string nombres, string apellidos, string usuario, string contraseÒa, string correo, int telefono, string direccion, string fechaNacimiento)
+        private bool RegistrarUsuario(string documento, string nombres, string apellidos, string usuario, string contrase√±a, string correo, int telefono, string direccion, string fechaNacimiento)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString;
 
@@ -49,7 +52,7 @@ namespace Aereolinea
                 cmd.Parameters.AddWithValue("@Nombres", nombres);
                 cmd.Parameters.AddWithValue("@Apellidos", apellidos);
                 cmd.Parameters.AddWithValue("@Usuario", usuario);
-                cmd.Parameters.AddWithValue("@ContraseÒa", contraseÒa);
+                cmd.Parameters.AddWithValue("@Contrase√±a", contrase√±a);
                 cmd.Parameters.AddWithValue("@Correo", correo);
                 cmd.Parameters.AddWithValue("@Telefono", telefono);
                 cmd.Parameters.AddWithValue("@Direccion", direccion);
@@ -63,7 +66,7 @@ namespace Aereolinea
                 }
                 catch (Exception ex)
                 {
-                    MostrarMensaje("OcurriÛ un error al registrar el usuario: " + ex.Message);
+                    MostrarMensaje("Ocurri√≥ un error al registrar el usuario: " + ex.Message);
                     return false; // Error en el registro
                 }
             }
@@ -74,5 +77,6 @@ namespace Aereolinea
             string script = $"alert('{mensaje}')";
             ScriptManager.RegisterStartupScript(this, GetType(), "Mensaje", script, true);
         }
+
     }
 }

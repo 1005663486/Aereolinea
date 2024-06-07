@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <generado autom醫icamente>
-//     Este c骴igo fue generado por una herramienta.
+// <generado autom谩ticamente>
+//     Este c贸digo fue generado por una herramienta.
 //
-//     Los cambios en este archivo podr韆n causar un comportamiento incorrecto y se perder醤 si
-//     se vuelve a generar el c骴igo. 
-// </generado autom醫icamente>
+//     Los cambios en este archivo podr铆an causar un comportamiento incorrecto y se perder谩n si
+//     se vuelve a generar el c贸digo. 
+// </generado autom谩ticamente>
 //------------------------------------------------------------------------------
 
 namespace Aereolinea
@@ -15,93 +15,109 @@ namespace Aereolinea
     {
 
         /// <summary>
+
         /// Control txtDocumento.
+
         /// </summary>
         /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
+        /// Campo generado autom谩ticamente.
+        /// Para modificarlo, mueva la declaraci贸n del campo del archivo del dise帽ador al archivo de c贸digo subyacente.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.TextBox txtDocumento;
 
         /// <summary>
         /// Control txtNombres.
+
         /// </summary>
         /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
+        /// Campo generado autom谩ticamente.
+        /// Para modificarlo, mueva la declaraci贸n del campo del archivo del dise帽ador al archivo de c贸digo subyacente.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.TextBox txtNombres;
 
         /// <summary>
         /// Control txtApellidos.
+
         /// </summary>
         /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
+        /// Campo generado autom谩ticamente.
+        /// Para modificarlo, mueva la declaraci贸n del campo del archivo del dise帽ador al archivo de c贸digo subyacente.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.TextBox txtApellidos;
 
         /// <summary>
         /// Control txtUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
-        /// </remarks>
+
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
+
+        /// <summary>
+        /// Control ddlTipoMantenimiento.
+
         protected global::System.Web.UI.WebControls.TextBox txtUsuario;
 
         /// <summary>
         /// Control txtContra.
+
         /// </summary>
         /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
+        /// Campo generado autom谩ticamente.
+        /// Para modificarlo, mueva la declaraci贸n del campo del archivo del dise帽ador al archivo de c贸digo subyacente.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.TextBox txtContra;
 
         /// <summary>
         /// Control txtCorreo.
+
         /// </summary>
         /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
+        /// Campo generado autom谩ticamente.
+        /// Para modificarlo, mueva la declaraci贸n del campo del archivo del dise帽ador al archivo de c贸digo subyacente.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
 
         /// <summary>
         /// Control txtTelefono.
         /// </summary>
         /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
+        /// Campo generado autom谩ticamente.
+        /// Para modificarlo, mueva la declaraci贸n del campo del archivo del dise帽ador al archivo de c贸digo subyacente.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
 
         /// <summary>
-        /// Control txtDireccion.
         /// </summary>
         /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
+        /// Campo generado autom谩ticamente.
+        /// Para modificarlo, mueva la declaraci贸n del campo del archivo del dise帽ador al archivo de c贸digo subyacente.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
 
         /// <summary>
         /// Control txtFechaNacimiento.
+
         /// </summary>
         /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
+        /// Campo generado autom谩ticamente.
+        /// Para modificarlo, mueva la declaraci贸n del campo del archivo del dise帽ador al archivo de c贸digo subyacente.
         /// </remarks>
+
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
 
         /// <summary>
         /// Control btnRegistrar.
         /// </summary>
         /// <remarks>
-        /// Campo generado autom醫icamente.
-        /// Para modificarlo, mueva la declaraci髇 del campo del archivo del dise馻dor al archivo de c骴igo subyacente.
+        /// Campo generado autom谩ticamente.
+        /// Para modificarlo, mueva la declaraci贸n del campo del archivo del dise帽ador al archivo de c贸digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegistrar;
+
     }
 }

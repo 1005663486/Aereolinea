@@ -38,6 +38,7 @@
         margin: 5px;
     }
 
+
     .titulo {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: black;
@@ -107,7 +108,7 @@
                                     <div class="form-group col-md-4 col-xs-4 text-center">
                                     </div>
                                     <div class="form-group col-md-4 col-xs-4 text-center">
-                                    <label for="txtContra">Contraseña:</label>
+                                    <label for="txtContra">Contraseï¿½a:</label>
                                     <asp:TextBox ID="txtContra" runat="server" CssClass="form-control" TextMode="Password" />
                                     </div>
                                 </div>
@@ -123,7 +124,7 @@
                                     <div class="form-group col-md-4 col-xs-4 text-center">
                                     </div>
                                     <div class="form-group col-md-4 col-xs-4 text-center">
-                                        <label for="txtTelefono">Teléfono:</label>
+                                        <label for="txtTelefono">Telï¿½fono:</label>
                                         <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" />
                                     </div>
                                 </div>
@@ -131,7 +132,7 @@
                                     <div class="form-group col-md-4 col-xs-4 text-center">
                                     </div>
                                     <div class="form-group col-md-4 col-xs-4 text-center">
-                                        <label for="txtDireccion">Dirección:</label>
+                                        <label for="txtDireccion">Direcciï¿½n:</label>
                                         <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" />
                                     </div>
                                 </div>
@@ -147,7 +148,9 @@
                         </div>
                     </div>
                     <div class="panel-footer text-center">
+
                         <asp:Button ID="btnRegistrar" runat="server" OnClick="Registrar_Click" CssClass="btn btn-info" Text="Registrar usuario" />
+
                     </div>
                 </div>
             </div>

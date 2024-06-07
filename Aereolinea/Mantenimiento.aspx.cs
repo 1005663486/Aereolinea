@@ -151,8 +151,9 @@ namespace Aereolinea
                         // Verificar si se realizaron cambios en la base de datos
                         if (rowsAffected > 0)
                         {
-                            // La actualización fue exitosa
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('¡Éxito!', 'La actualización fue exitosa.', 'success');", true);
+                            // La actualizaciÃ³n fue exitosa
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('Â¡Ã‰xito!', 'La actualizaciÃ³n fue exitosa.', 'success');", true);
+
                             CargarAeronavesActivas();
                         }
                         else
