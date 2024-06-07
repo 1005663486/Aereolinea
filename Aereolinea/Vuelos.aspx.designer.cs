@@ -51,22 +51,22 @@ namespace Aereolinea
         protected global::System.Web.UI.WebControls.TextBox txtFechaLlegada;
 
         /// <summary>
-        /// Control txtOrigen.
+        /// Control ddlOrigen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOrigen;
+        protected global::System.Web.UI.WebControls.DropDownList ddlOrigen;
 
         /// <summary>
-        /// Control txtDestino.
+        /// Control ddlDestino.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDestino;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDestino;
 
         /// <summary>
         /// Control txtEstado.
@@ -87,13 +87,13 @@ namespace Aereolinea
         protected global::System.Web.UI.WebControls.TextBox txtPasajeros;
 
         /// <summary>
-        /// Control txtRuta.
+        /// Control ddlRuta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRuta;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRuta;
 
         /// <summary>
         /// Control txtSillas.
@@ -105,13 +105,13 @@ namespace Aereolinea
         protected global::System.Web.UI.WebControls.TextBox txtSillas;
 
         /// <summary>
-        /// Control txtPuertaAbordaje.
+        /// Control ddlPuertaAbordaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPuertaAbordaje;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPuertaAbordaje;
 
         /// <summary>
         /// Control txtTripulante.

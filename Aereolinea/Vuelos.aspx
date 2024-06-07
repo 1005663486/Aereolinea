@@ -134,18 +134,17 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="txtOrigen">Origen:</label>
-                                    <asp:TextBox ID="txtOrigen" runat="server" CssClass="form-control" />
+                                    <label for="ddlOrigen">Origen:</label>
+                                    <asp:DropDownList ID="ddlOrigen" runat="server" CssClass="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtDestino">Destino:</label>
-                                    <asp:TextBox ID="txtDestino" runat="server" CssClass="form-control" />
+                                    <label for="ddlDestino">Destino:</label>
+                                    <asp:DropDownList ID="ddlDestino" runat="server" CssClass="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtEstado">Estado:</label>
                                     <asp:TextBox ID="txtEstado" runat="server" CssClass="form-control" />
                                 </div>
-
 
                             </div>
                             <div class="col-md-6">
@@ -154,8 +153,16 @@
                                     <asp:TextBox ID="txtPasajeros" runat="server" CssClass="form-control" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtRuta">Ruta:</label>
-                                    <asp:TextBox ID="txtRuta" runat="server" CssClass="form-control" />
+                                    <label for="ddlRuta">Ruta:</label>
+                                    <asp:DropDownList ID="ddlRuta" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="Ruta 101" Value="Ruta 101"></asp:ListItem>
+                                    <asp:ListItem Text="Ruta 102" Value="Ruta 102"></asp:ListItem>
+                                    <asp:ListItem Text="Ruta 103" Value="Ruta 103"></asp:ListItem>
+                                    <asp:ListItem Text="Ruta 104" Value="Ruta 104"></asp:ListItem>
+                                    <asp:ListItem Text="Ruta 105" Value="Ruta 105"></asp:ListItem>
+                                    <asp:ListItem Text="Ruta 106" Value="Ruta 106"></asp:ListItem>
+                                    <asp:ListItem Text="Ruta 107" Value="Ruta 107"></asp:ListItem>
+                                    </asp:DropDownList>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtSillas">Sillas:</label>
@@ -163,8 +170,19 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="txtPuertaAbordaje">Puerta Abordaje:</label>
-                                    <asp:TextBox ID="txtPuertaAbordaje" runat="server" CssClass="form-control" />
+                                    <label for="ddlPuertaAbordaje">Puerta Abordaje:</label>
+                                    <asp:DropDownList ID="ddlPuertaAbordaje" runat="server" CssClass="form-control">
+                                        <asp:ListItem Text="A1" Value="A1"></asp:ListItem>
+                                        <asp:ListItem Text="A2" Value="A2"></asp:ListItem>
+                                        <asp:ListItem Text="A2" Value="A3"></asp:ListItem>
+                                        <asp:ListItem Text="B1" Value="B1"></asp:ListItem>
+                                        <asp:ListItem Text="B2" Value="B2"></asp:ListItem>
+                                        <asp:ListItem Text="B3" Value="B3"></asp:ListItem>
+                                        <asp:ListItem Text="C1" Value="C1"></asp:ListItem>
+                                        <asp:ListItem Text="C2" Value="C2"></asp:ListItem>
+                                        <asp:ListItem Text="C3" Value="C3"></asp:ListItem>
+
+                                    </asp:DropDownList>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtTripulante">Tripulante:</label>
