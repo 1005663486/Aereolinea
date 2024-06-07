@@ -95,7 +95,7 @@ namespace Aereolinea
                 }
                 catch (Exception ex)
                 {
-                    // Manejar errores de conexión o consulta
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -151,12 +151,13 @@ namespace Aereolinea
         private DataTable ObtenerMantenimientoPorId(int IdMantenimiento)
         {
             DataTable dtMantenimiento = new DataTable();
-
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "sp_GetMantenimientoID";
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "sp_GetMantenimientoID"
+                };
                 cmd.Parameters.AddWithValue("@IdMantenimiento", IdMantenimiento);
                 cmd.Connection = conn;
 
@@ -171,7 +172,7 @@ namespace Aereolinea
                 }
                 catch (Exception ex)
                 {
-                    // Manejar errores de conexión o consulta
+                    Console.WriteLine(ex.Message);
                 }
             }
 
@@ -200,7 +201,7 @@ namespace Aereolinea
                 }
                 catch (Exception ex)
                 {
-                    // Manejar errores de conexión o consulta
+                    Console.WriteLine(ex.Message);
                 }
             }
 
@@ -262,7 +263,7 @@ namespace Aereolinea
                     }
                     catch (Exception ex)
                     {
-                        // Manejar errores de conexión o consulta
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }

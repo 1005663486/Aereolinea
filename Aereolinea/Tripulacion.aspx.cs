@@ -142,8 +142,7 @@ namespace Aereolinea
                 }
                 catch (Exception ex)
                 {
-                    // Manejar errores de conexión o consulta
-                    // Por ejemplo, puedes mostrar un mensaje de error o registrar el error en un archivo de registro
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -260,7 +259,7 @@ namespace Aereolinea
                 }
                 catch (Exception ex)
                 {
-                    // Manejar errores de conexión o consulta
+                    Console.WriteLine(ex.Message);
                 }
             }
 
@@ -320,7 +319,7 @@ namespace Aereolinea
             }
             catch (Exception ex)
             {
-                // Manejar cualquier excepción
+                Console.WriteLine(ex.Message);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al actualizar el tripulante.', 'error');", true);
             }
         }

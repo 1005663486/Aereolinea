@@ -25,10 +25,12 @@ namespace Aereolinea
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "Listar_AeronavesActivas";
-                cmd.Connection = conn;
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "Listar_AeronavesActivas",
+                    Connection = conn
+                };
 
                 try
                 {
@@ -66,10 +68,12 @@ namespace Aereolinea
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "Listar_PersonalMant";
-                cmd.Connection = conn;
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "Listar_PersonalMant",
+                    Connection = conn
+                };
 
                 try
                 {
@@ -128,8 +132,10 @@ namespace Aereolinea
 
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("sp_CreateMantenimiento", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("sp_CreateMantenimiento", conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
                     cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
                     cmd.Parameters.AddWithValue("@TipoMantenimiento", tipoMantenimiento);
@@ -145,8 +151,9 @@ namespace Aereolinea
                         // Verificar si se realizaron cambios en la base de datos
                         if (rowsAffected > 0)
                         {
-                            // La actualización fue exitosa
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('¡Éxito!', 'La actualización fue exitosa.', 'success');", true);
+                            // La actualizaciÃ³n fue exitosa
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('Â¡Ã‰xito!', 'La actualizaciÃ³n fue exitosa.', 'success');", true);
+
                             CargarAeronavesActivas();
                         }
                         else
@@ -157,8 +164,7 @@ namespace Aereolinea
                     }
                     catch (Exception ex)
                     {
-                        // Manejar errores de conexión o consulta
-                        // Por ejemplo, puedes mostrar un mensaje de error o registrar el error en un archivo de registro
+                        Console.WriteLine("Error: " + ex.Message);
                     }
                 }
             }

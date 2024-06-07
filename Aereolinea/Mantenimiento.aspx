@@ -110,7 +110,9 @@
                     </div>
                     <div class="panel-footer text-center">
                         <asp:Button ID="btnGuardar" runat="server" OnClick="Guardar_Click" CssClass="btn btn-info" Text="Guardar" />
+                    
                     </div>
+
                 </div>
             </div>
         </div>
