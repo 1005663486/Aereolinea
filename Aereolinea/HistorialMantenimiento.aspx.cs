@@ -134,7 +134,7 @@ namespace Aereolinea
                 txtModelo.Text = dtMantenimiento.Rows[0]["Aeronave"].ToString();
                 txtFechaInicio.Text = dtMantenimiento.Rows[0]["FechaInicio"].ToString();
                 txtFechaFin.Text = dtMantenimiento.Rows[0]["FechaFin"].ToString();
-                txtTipoMantenimiento.Text = dtMantenimiento.Rows[0]["TipoManetimiento"].ToString();
+                txtTipoMantenimiento.Text = dtMantenimiento.Rows[0]["tipoMantenimiento"].ToString();
                 txtResponsable.Text = dtMantenimiento.Rows[0]["Responsable"].ToString();
                 txtEstado.Text = dtMantenimiento.Rows[0]["Estado"].ToString();
                 txtCodigo.Text = dtMantenimiento.Rows[0]["Codigo"].ToString();
@@ -219,7 +219,7 @@ namespace Aereolinea
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "MostrarPanelScript", "mostrarPanel();", true);
                 txtFechaInicio.Text = dtMantenimiento.Rows[0]["FechaInicio"].ToString();
                 txtFechaFin.Text = dtMantenimiento.Rows[0]["FechaFin"].ToString();
-                txtTipoMantenimiento.Text = dtMantenimiento.Rows[0]["TipoManetimiento"].ToString();
+                txtTipoMantenimiento.Text = dtMantenimiento.Rows[0]["tipoMantenimiento"].ToString();
                 txtResponsable.Text = dtMantenimiento.Rows[0]["Responsable"].ToString();
                 txtEstado.Text = dtMantenimiento.Rows[0]["Estado"].ToString();
                 txtCodigo.Text = dtMantenimiento.Rows[0]["Codigo"].ToString();
@@ -271,5 +271,10 @@ namespace Aereolinea
                 Console.WriteLine("Error al eliminar el mantenimiento: " + ex.Message);
             }
         }
+        protected void Agregar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Mantenimiento.aspx");
+        }
     }
+    
 }

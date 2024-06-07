@@ -59,9 +59,9 @@
 
         .titulo-historial {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #fff;
+            color: black;
             text-align: center;
-            margin-top: 50px;
+            margin-top: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         .no-historial-message {
@@ -80,7 +80,8 @@
         }
     </style>
 
-    <div class="containerImage Datos">
+    <div class="containerImage Datos text-center">
+             <asp:Button ID="btnAgregar" runat="server" OnClick="Agregar_Click" CssClass="btn btn-info" Text="Agregar mantenimiento" />
             <div class="col-md-12 col-lg-12 col-12 col-xs-12">
                 <h1 class="titulo-historial ridge">Historial de Mantenimiento</h1>
                <div class="align-items-center text-center" style="font-size:18px; margin:20px">

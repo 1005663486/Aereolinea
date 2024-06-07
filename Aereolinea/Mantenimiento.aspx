@@ -1,18 +1,14 @@
-<%@ Page Title="Mantenimiento -" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Mantenimiento.aspx.cs" Inherits="Aereolinea.Mantenimiento" EnableEventValidation="false" %>
+<%@ Page Title="Mantenimiento -" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Mantenimiento.aspx.cs" Inherits="Aereolinea._Mantenimiento" EnableEventValidation="false" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <style>
     .content {
-    flex: 1;
-    padding: 20px;
-    background-color: #ffa0;
-    margin-bottom: 10%;
-    }
-    .Datos .panel{
-        margin: 10px;
-        background-color: aliceblue;
+        flex: 1;
+        padding: 20px;
+        background-color: #ffa0;
+        margin-bottom: 10%;
     }
     body {
         background-image: url('Images/FondoAvion.png');
@@ -44,56 +40,74 @@
 
     .titulo-mantenimiento {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #fff;
+        color: black;
         text-align: center;
-        margin-top: 50px;
+        margin-top: 10px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     .ridge {
         border-style: ridge;
     }
-</style>
+    .full-width{
+        width:100%
+    }
+    </style>
 
+    <div class="col-md-12 col-lg-12 col-xs-12 col-12 text-center">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-12 col-lg-12 col-xs-12 col-12">
+                <asp:Button ID="btnVerHistorial" runat="server" OnClick="VerHistorial_Click" CssClass="btn btn-info" Text="Ver historial" />
+                <div id="panelMantenimiento" class="panel panel-default">
 
-    <div class="containerImage">
-        <asp:Button ID="btnMostrarPanel" runat="server" OnClientClick="mostrarPanel(); return false;" Text="Agregar nuevo Mantenimiento" CssClass="btn btn-primary btn-lg" />
-        <br />
+                    <h1 class="titulo-mantenimiento ridge">Agregar mantenimiento</h1>
 
-        <div id="panelMantenimiento" class="panel panel-default" style="display: none;">
-
-            <h1 class="titulo-mantenimiento ridge">Historial de Mantenimiento</h1>
-
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="ddlResponsable">Responsable:</label>
-                            <asp:DropDownList ID="ddlResponsable" runat="server" CssClass="form-control">
-                                <!-- Aquí puedes llenar la lista desplegable con los responsables -->
-                            </asp:DropDownList>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-xs-12 col-12">
+                                <div class="form-group col-md-4 col-xs-4 text-left">
+                                    <label for="txtFechaInicio">Fecha de inicio(dd-mm-aaaa):</label>
+                                    <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group col-md-4 col-xs-4 text-left">
+                                    <label for="txtFechaFin">Fecha de fin(dd-mm-aaaa):</label>
+                                    <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group col-md-4 col-xs-4 text-left">
+                                    <label for="ddlTipoMantenimiento">Tipo de Mantenimiento:</label>
+                                    <asp:DropDownList ID="ddlTipoMantenimiento" runat="server" CssClass="form-control">
+                                        <asp:ListItem Text="Correctivo" Value="Correctivo"></asp:ListItem>
+                                        <asp:ListItem Text="Preventivo" Value="Preventivo"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="form-group col-md-4 col-xs-4 text-left">
+                                    <label for="ddlResponsable">Responsable:</label>
+                                    <asp:DropDownList ID="ddlResponsable" runat="server" CssClass="form-control"></asp:DropDownList>
+                                </div>
+                                <div class="form-group col-md-4 col-xs-4 text-left">
+                                    <label for="ddlAeronavesActivas">Aeronave:</label>
+                                    <asp:DropDownList ID="ddlAeronavesActivas" runat="server" CssClass="form-control"></asp:DropDownList>
+                                </div>
+                                <div class="form-group col-md-4 col-xs-4 text-left">
+                                    <label for="ddlEstado">Estado:</label>
+                                    <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-control">
+                                        <asp:ListItem Text="Pendiente" Value="Pendiente"></asp:ListItem>
+                                        <asp:ListItem Text="En curso" Value="En curso"></asp:ListItem>
+                                        <asp:ListItem Text="Finalizado" Value="Finalizado"></asp:ListItem>
+                                        <asp:ListItem Text="Pospuesto" Value="Pospuesto"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="form-group col-md-12 col-lg-12 col-xs-12 col-12 text-left">
+                                    <label for="txtObservaciones">Observaciones:</label>
+                                    <asp:TextBox ID="txtObservaciones" runat="server" CssClass="form-control full-width" TextMode="MultiLine" Rows="3" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="ddlAeronave">Aeronave:</label>
-                            <asp:DropDownList ID="ddlAeronave" runat="server" CssClass="form-control">
-                                <!-- Aquí puedes llenar la lista desplegable con las aeronaves -->
-                            </asp:DropDownList>
-                        </div>
-                        <div class="form-group">
-                            <label for="ddlTipoMantenimiento">Tipo de Mantenimiento:</label>
-                            <asp:DropDownList ID="ddlTipoMantenimiento" runat="server" CssClass="form-control">
-                                <!-- Aquí puedes llenar la lista desplegable con los tipos de mantenimiento -->
-                            </asp:DropDownList>
-                        </div>
-                        <!-- Otros campos de mantenimiento según sea necesario -->
+                    </div>
+                    <div class="panel-footer text-center">
+                        <asp:Button ID="btnGuardar" runat="server" OnClick="Guardar_Click" CssClass="btn btn-info" Text="Guardar" />
                     </div>
                 </div>
             </div>
-            <div class="panel-footer text-center">
-                <asp:Button ID="btnGuardarMantenimiento" runat="server" OnClick="btnGuardarMantenimiento_Click" CssClass="btn btn-info" Text="Guardar" />
-                <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" OnClick="btnEditar_Click" />
-            </div>
         </div>
-
-        <!-- Aquí puedes agregar la lista de mantenimientos similar al GridView de tripulación -->
     </div>
 </asp:Content>
