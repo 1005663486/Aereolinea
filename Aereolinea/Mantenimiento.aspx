@@ -41,6 +41,7 @@
     .titulo-mantenimiento {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: black;
+        text-align: center;
         margin-top: 10px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
@@ -101,9 +102,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="ddlTipoMantenimiento">Tipo de Mantenimiento:</label>
+                            <asp:DropDownList ID="ddlTipoMantenimiento" runat="server" CssClass="form-control">
+                            </asp:DropDownList>
+                        </div>
                     </div>
                     <div class="panel-footer text-center">
                         <asp:Button ID="btnGuardar" runat="server" OnClick="Guardar_Click" CssClass="btn btn-info" Text="Guardar" />
+                    
                     </div>
                 </div>
             </div>
