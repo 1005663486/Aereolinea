@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Aeronaves.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -112,6 +113,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="HistorialMantenimiento.aspx" />
+    <Content Include="Images\AVION1.jpg" />
     <Content Include="Scripts\HistorialMantenimiento.js" />
     <Content Include="Vuelos.aspx" />
     <Content Include="favicon.ico" />
@@ -170,6 +172,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aeronaves.aspx.cs">
+      <DependentUpon>Aeronaves.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aeronaves.aspx.designer.cs">
+      <DependentUpon>Aeronaves.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Contact.aspx.cs">

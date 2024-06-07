@@ -229,6 +229,7 @@ namespace Aereolinea
                 txtCorreo.Text = dtTripulante.Rows[0]["Correo"].ToString();
                 ddlEstado.Text = dtTripulante.Rows[0]["Estado"].ToString();
                 ddlHorario.Text = dtTripulante.Rows[0]["Hoario"].ToString();
+                IDTripulante.Value = dtTripulante.Rows[0]["IdTripulacion"].ToString();
             }
             else
             {
