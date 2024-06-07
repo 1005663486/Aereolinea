@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="Tripulacion -" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tripulacion.aspx.cs" Inherits="Aereolinea.Tripulacion" EnableEventValidation="false" %>
-
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
@@ -11,25 +10,7 @@
             var panel = document.getElementById('panelTripulante');
             panel.style.display = 'none';
         }
-
-<%--    // Función para abrir el modal y cargar los datos de la fila seleccionada
-            function abrirModal(idTripulacion) {
-        // Obtener los elementos del modal y los campos de la fila seleccionada
-        var modal = document.getElementById('modalEditar');
-        var txtRolEdit = document.getElementById('<%= txtRolEdit.ClientID %>'); // Asegura que se obtenga el ClientID correcto
-            // Obtener los valores de los campos de la fila seleccionada
-            var rol = document.getElementById('rol_' + idTripulacion).innerText; // Suponiendo que el rol está en un elemento con id 'rol_<idTripulacion>'
-                // Asignar los valores a los campos del modal
-                txtRolEdit.value = rol;
-                // Mostrar el modal
-                modal.style.display = 'block';
-    }--%>
-
-
-
-
     </script>
-
 
     <style>
         .content {
@@ -39,7 +20,7 @@
         }
 
         body {
-            background-image: url('Images/FondoAvion.png');
+            background-image: url('Images/AVION1.jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -76,21 +57,18 @@
             padding-bottom: 100px; /* Ajusta el valor según el espacio deseado entre el contenido y el pie de página */
         }
     </style>
+
     <div class="containerImage">
         <asp:Button ID="btnMostrarPanel" runat="server" OnClientClick="mostrarPanel(); return false;" Text="Agregar nuevo Tripulante" CssClass="btn btn-primary btn-lg" />
         <br />
 
-
         <div id="panelTripulante" class="panel panel-default" style="display: none;">
-            <div class="panel-heading text-center">
-                Agregar un nuevo Tripulante
-
+            <div class="panel-heading text-center">Agregar un nuevo Tripulante
              <button type="button" class="close" onclick="cerrarPanel()">&times;</button>
             </div>
-
             <div class="panel-body">
                 <div class="row">
-                <input id="IDTripulante" runat="server" style="display:none"/>
+                    <input id="IDTripulante" runat="server" style="display: none" />
                     <div class="col-md-6">
                         <div class="form-group">
                             <div class="form-group">
@@ -156,7 +134,7 @@
             </div>
             <div class="panel-footer text-center">
                 <asp:Button ID="btnGuardarTripulante" runat="server" OnClick="btnGuardarTripulante_Click" CssClass="btn btn-info" Text="Guardar" />
-                 <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning" OnClick="btnEditar_Click" />
+                <asp:Button ID="btnEditar" runat="server" Text="Actualizar datos" CssClass="btn btn-warning" OnClick="btnEditar_Click" />
             </div>
         </div>
 
@@ -172,31 +150,24 @@
                 <asp:BoundField DataField="Celular" HeaderText="Celular" />
                 <asp:BoundField DataField="Correo" HeaderText="Correo" />
                 <asp:TemplateField HeaderText="Estado">
-                <ItemTemplate>
-                    <asp:Label ID="lblEstado" runat="server" Text='<%# Eval("Estado").ToString() == "1" ? "Activo" : "Inactivo" %>'></asp:Label>
-                </ItemTemplate>
+
+                    <ItemTemplate>
+                        <asp:Label ID="lblEstado" runat="server" Text='<%# Eval("Estado").ToString() == "1" ? "Activo" : "Inactivo" %>'></asp:Label>
+                    </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ShowDeleteButton="True" DeleteText="Eliminar" />
+                <asp:CommandField HeaderText="Eliminar" ShowDeleteButton="True" DeleteText="Eliminar" />
                 <asp:TemplateField HeaderText="Acciones">
-        <ItemTemplate>
-            <asp:Button ID="btnEdit" runat="server" Text="Editar" CommandName="EditRow" CommandArgument='<%#Eval("IdTripulacion")%>' OnClick="btnEdit_Click" />
-        </ItemTemplate>
-    </asp:TemplateField>
-                </Columns>
+                    <ItemTemplate>
+                        <asp:Button ID="btnEdit" runat="server" Text="Editar" CommandName="EditRow" CommandArgument='<%#Eval("IdTripulacion")%>' OnClick="btnEdit_Click" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
             <HeaderStyle BackColor="#007bff" ForeColor="White" />
             <RowStyle BackColor="#f8f9fa" />
             <AlternatingRowStyle BackColor="white" />
         </asp:GridView>
 
     </div>
-    <!-- Modal de Edición -->
-<%--<div id="modalEditar" class="modal">
-    <div class="modal-content">
-        <!-- Aquí colocas los campos para editar -->
-        <asp:TextBox ID="txtRolEdit" runat="server"></asp:TextBox>
-        <!-- Agrega los demás campos que necesites -->
-        <asp:Button ID="btnActualizar" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" />
-    </div>
-</div>--%>
+
 
 </asp:Content>
