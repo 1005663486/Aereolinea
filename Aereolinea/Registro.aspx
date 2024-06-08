@@ -78,7 +78,7 @@
             margin-right: 10px;
         }
 
-        .registro-link {
+        .inicio-link {
             text-decoration: none;
             color: #007bff;
             font-weight: bold;
@@ -148,8 +148,8 @@
                             <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="txtFechaNacimiento">Fecha de Nacimiento:</label>
-                            <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" />
+                            <label for="txtFechaNacimiento">Fecha de nacimiento(dd-mm-aaaa):</label>
+                            <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" TextMode="Date"/>
                         </div>
                     </div>
 
