@@ -14,49 +14,25 @@ namespace Aereolinea
         {
 
         }
-
         protected void Registrar_Click(object sender, EventArgs e)
         {
-            string documento = txtDocumento.Text.Trim();
-            string nombres = txtNombres.Text.Trim();
-            string apellidos = txtApellidos.Text.Trim();
-            string usuario = txtUsuario.Text.Trim();
-            string contraseña = txtContra.Text.Trim();
-            string correo = txtCorreo.Text.Trim();
-            string telefono = txtTelefono.Text.Trim();
-            string direccion = txtDireccion.Text.Trim();
 
-            DateTime fechaNacimiento;
-            if (!DateTime.TryParse(txtFechaNacimiento.Text, out fechaNacimiento))
-            {
-                MostrarMensaje("Formato de fecha de nacimiento inválido.");
-                return;
-            }
-
-            Debug.WriteLine("Documento: " + documento);
-            Debug.WriteLine("Nombres: " + nombres);
-            Debug.WriteLine("Apellidos: " + apellidos);
-            Debug.WriteLine("Usuario: " + usuario);
-            Debug.WriteLine("Contraseña: " + contraseña);
-            Debug.WriteLine("Correo: " + correo);
-            Debug.WriteLine("Telefono: " + telefono);
-            Debug.WriteLine("Direccion: " + direccion);
-            Debug.WriteLine("FechaNacimiento: " + fechaNacimiento);
-
-            if (RegistrarUsuario(documento, nombres, apellidos, usuario, contraseña, correo, telefono, direccion, fechaNacimiento))
-            {
-                Response.Redirect("Ingreso.aspx");
-            }
-            else
-            {
-                MostrarMensaje("Error al registrar el usuario.");
-            }
-        }
-
-        private bool RegistrarUsuario(string documento, string nombres, string apellidos, string usuario, string contraseña, string correo, string telefono, string direccion, DateTime fechaNacimiento)
-        {
             try
             {
+                Button btn = (Button)sender;
+
+                string documento = txtDocumento.Text.Trim();
+                string nombres = txtNombres.Text.Trim();
+                string apellidos = txtApellidos.Text.Trim();
+                string usuario = txtUsuario.Text.Trim();
+                string contraseña = txtContra.Text.Trim();
+                string correo = txtCorreo.Text.Trim();
+                string telefono = txtTelefono.Text.Trim();
+                string direccion = txtDireccion.Text.Trim();
+                DateTime fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+
+
+
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AviacolDBConnectionString"].ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand("sp_CreateUsuario", conn)
@@ -67,22 +43,41 @@ namespace Aereolinea
                     cmd.Parameters.AddWithValue("@Nombres", nombres);
                     cmd.Parameters.AddWithValue("@Apellidos", apellidos);
                     cmd.Parameters.AddWithValue("@Usuario", usuario);
-                    cmd.Parameters.AddWithValue("@Contraseña", contraseña);
+                    cmd.Parameters.AddWithValue("@Contra", contraseña);
                     cmd.Parameters.AddWithValue("@Correo", correo);
                     cmd.Parameters.AddWithValue("@Telefono", telefono);
                     cmd.Parameters.AddWithValue("@Direccion", direccion);
                     cmd.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento);
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    return true;
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        // Verificar si se realizaron cambios en la base de datos
+                        if (rowsAffected > 0)
+                        {
+                            // La actualización fue exitosa
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "success", "Swal.fire('¡Éxito!', 'La actualización fue exitosa.', 'success');", true);
+
+
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al actualizar el vuelo.', 'error');", true);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MostrarMensaje("Ocurrió un error al registrar el usuario: " + ex.Message);
-                return false;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "error", "Swal.fire('Error', 'Hubo un error al actualizar el vuelo.', 'error');", true);
             }
+
         }
 
         private void MostrarMensaje(string mensaje)
